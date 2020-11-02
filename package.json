@@ -1,0 +1,26 @@
+{
+  "name": "captaincss",
+  "version": "0.0.1",
+  "description": "A barebones CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and larger projects",
+  "license": "MIT",
+  "repository": "https://github.com/hex-digital/captaincss.git",
+  "bugs": "https://github.com/hex-digital/captaincss/issues",
+  "homepage": "https://hexdigital.com",
+  "contributors": [
+    "Jamie Warburton <jamie@hexdigital.com>"
+  ],
+  "files": ["*"],
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "not edge <= 18",
+    "not ie 11",
+    "not op_mini all"
+  ]
+}

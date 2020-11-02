@@ -1,0 +1,16 @@
+/node_modules
+
+/coverage
+/lib
+/example
+
+tailwind.config.js
+index.html
+package-lock.json
+yarn-error.log
+
+# Perf related files
+isolate*.log
+
+.idea
+.DS_Store
