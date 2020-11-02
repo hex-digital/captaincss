@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to CaptainCSS 👋</h1>
+<h1 align="center"><img width="279" src="https://user-images.githubusercontent.com/2754728/97847245-3bb9fd80-1ce7-11eb-94b3-1f0a11f3b61f.png"><br />Welcome to CaptainCSS 👋</h1>
 
 A barebones CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and larger projects
 
