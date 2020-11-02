@@ -1,6 +1,8 @@
-<h1 align="center"><img width="279" src="https://user-images.githubusercontent.com/2754728/97847245-3bb9fd80-1ce7-11eb-94b3-1f0a11f3b61f.png"><br />Welcome to CaptainCSS 👋</h1>
+<h1 align="center"><img width="279" src="https://user-images.githubusercontent.com/2754728/97885162-ec8fbf00-1d1e-11eb-9f7d-9cef86938da0.png"><br />Welcome to CaptainCSS 👋</h1>
 
-A barebones CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and larger projects
+A barebones CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and projects.
+
+It does not provide you with UI or design out of the box. Instead, it provides a solid architectural baseline upon which anything can be built.
 
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
