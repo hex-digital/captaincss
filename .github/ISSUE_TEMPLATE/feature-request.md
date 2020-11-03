@@ -1,5 +1,5 @@
 ---
-name: 'Bug Report'
+name: 'Feature Request'
 about: 'Request a new feature for the framework.'
 title: ''
 labels: ''
