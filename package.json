@@ -1,7 +1,7 @@
 {
   "name": "captaincss",
   "version": "0.0.1",
-  "description": "A barebones CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and larger projects",
+  "description": "An extensible, scalable CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and large or long-lasting projects",
   "license": "MIT",
   "repository": "https://github.com/hex-digital/captaincss.git",
   "bugs": "https://github.com/hex-digital/captaincss/issues",
