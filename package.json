@@ -1,6 +1,6 @@
 {
   "name": "captaincss",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "An extensible, scalable CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and large or long-lasting projects",
   "license": "MIT",
   "repository": "https://github.com/hex-digital/captaincss.git",
@@ -13,7 +13,8 @@
     "*"
   ],
   "scripts": {
-    "style": "eslint ."
+    "style": "eslint .",
+    "get-version": "echo $npm_package_version"
   },
   "husky": {
     "hooks": {
@@ -28,6 +29,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
     "prettier": "^2.1.2",
+    "semantic-release": "^17.2.2",
+    "semantic-release-slack-bot": "^1.6.2",
     "tailwindcss-export-config": "^2.3.0"
   },
   "dependencies": {},
