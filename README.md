@@ -47,6 +47,8 @@ Test command
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/hex-digital/captaincss/issues).
 
+Please read our [Contributing Guidelines](https://github.com/hex-digital/captaincss/blob/main/.github/CONTRIBUTING.md) first!
+
 ## Show your support
 
 Please give a ⭐️ if this project helped you!
