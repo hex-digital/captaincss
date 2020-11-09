@@ -15,14 +15,17 @@
     "prettier/prettier": [
       "error",
       {
-        "semi": false,
-        "singleQuote": true,
-        "printWidth": 100,
-        "tabWidth": 2,
-        "useTabs": false,
-        "trailingComma": "es5",
+        "arrowParens": "always",
         "bracketSpacing": true,
-        "parser": "flow"
+        "editor.formatOnSave": true,
+        "endOfLine": "lf",
+        "parser": "flow",
+        "printWidth": 100,
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "useTabs": false
       }
     ]
   }
