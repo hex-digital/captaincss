@@ -10,9 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - name: Get version from package.json before release step
         id: initversion
-        run: echo "::set-output name=version::$(npm run get-version --silent)"
+        run: echo "::set-output name=version::$(yarn run get-version --silent)"
       - name: 'Release to NPM and GitHub'
         id: release
         env:
@@ -26,7 +32,7 @@ jobs:
         run: npx semantic-release
       - name: 'Get version from package.json after release step'
         id: extractver
-        run: echo "::set-output name=version::$(npm run get-version --silent)"
+        run: echo "::set-output name=version::$(yarn run get-version --silent)"
       - name: 'Create Pull Request with updated package files'
         if: steps.initversion.outputs.version != steps.extractver.outputs.version
         uses: peter-evans/create-pull-request@v2.4.4

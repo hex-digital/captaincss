@@ -13,7 +13,7 @@ module.exports = {
         preset: 'conventionalcommits',
       },
     ],
-    // ['@semantic-release/changelog', { changelogTitle: '# Changelog' }],
+    ['@semantic-release/changelog', { changelogTitle: '# Changelog' }],
     '@semantic-release/npm',
     '@semantic-release/github',
   ],
