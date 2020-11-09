@@ -30,11 +30,11 @@ $THEME: (
   ),
 ) !default;
 
-// Get wrapper settings from the global theme settings
+// Get settings from the global theme settings
 $wrapper-padding: captain('wrapper', 'padding');
 $wrapper-max-widths: captain('wrapper', 'maxWidth');
 
-// Create the wrapper class, adding the prefix defined in the config
+// Create the class, adding the prefix defined in the config
 $wrapper: #{'.' + $OBJECT_PREFIX + 'wrapper'};
 
 @responsive {

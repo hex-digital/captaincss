@@ -41,11 +41,11 @@ $THEME: (
   ),
 ) !default;
 
-// Get content settings from the global theme settings
+// Get settings from the global theme settings
 $content-gutter-sizes: captain('content', 'gutter');
 $content-width-sizes: captain('content', 'width');
 
-// Create the content class, adding the prefix defined in the config
+// Create the class, adding the prefix defined in the config
 $content: #{'.' + $OBJECT_PREFIX + 'content'};
 
 @responsive {
