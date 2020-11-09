@@ -37,3 +37,22 @@ Please ensure that the tests are passing when submitting a pull request. If you'
 In addition to the automated tests, if you'd like to test the generated CSS manually with your own test HTML file, you can use the captaincss-test-project.
 
 This project maintains a test suite with a webpack config. It will pull in Tailwind and CaptainCSS, build the project and output a local server on which you can test your changes.
+
+## Conventional Commits
+
+This project follows [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) specification. Releasing to GitHub and NPM is done with the support of [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
+
+Pull requests must have a title following the specification, otherwise, merging will be blocked. If you are not familiar with the specification simply ask maintainers to modify. You can also use this cheatsheet if you want:
+
+- `fix: ` prefix in the title indicates that PR is a bug fix and PATCH release must be triggered.
+- `feat: ` prefix in the title indicates that PR is a feature and MINOR release must be triggered.
+- `docs: ` prefix in the title indicates that PR is only related to the documentation and there is no need to trigger release.
+- `chore: ` prefix in the title indicates that PR is only related to cleanup in the project and there is no need to trigger release.
+- `test: ` prefix in the title indicates that PR is only related to tests and there is no need to trigger release.
+- `refactor: ` prefix in the title indicates that PR is only related to refactoring and there is no need to trigger release.
+
+What about MAJOR release? just add `!` to the prefix, like `fix!: ` or `refactor!: `.
+
+You can also add an optional scope in brackets, after the prefx, like `feat(lang): add polish language`.
+
+Prefix that follows specification is not enough though. Remember that the title must be clear and descriptive with usage of [imperative mood](https://chris.beams.io/posts/git-commit/#imperative).
