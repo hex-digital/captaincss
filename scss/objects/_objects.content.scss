@@ -9,11 +9,13 @@
  * inside of a container. This gutter will be the width of the container PLUS the size of the gutter, as the content
  * uses the content-box display model.
  *
- * The BaseContent can have it's content centered aligned, using text-align: center, via the `centerText` prop. However,
- * it can also intrinsically center the content, based on its natural, content-based widths, using the `center` prop.
+ * The Content can have it's content centered aligned, using Tailwind's .text-center. However, it can also intrinsically
+ * center the content, based on its natural, content-based widths, using the `o-content--intrinsic-center`. This means
+ * elements that are not 100% width will appear in the middle of the container, which can be preferable.
  *
- * Finally, the tag can be changed using the `tag` prop, and a `maxWidth` can be optionally set, to override the size of
- * the BaseContent. This is usually a `ch` value, such as 70ch, and used to maintain a reasonable reading masure.
+ * A Wrapper is similar to a Content, but is designed to be used to constrain individual content such as paragraphs,
+ * images and buttons, rather than at a page level. You may of course use a Content inside of a Wrapper, which is
+ * expected.
  */
 
 // Initialise globals in case this object is used without the framework
