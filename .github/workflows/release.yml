@@ -16,7 +16,7 @@ jobs:
       - name: 'Release to NPM and GitHub'
         id: release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_AUTHOR_NAME: asyncapi-bot
           GIT_AUTHOR_EMAIL: info@asyncapi.io
@@ -31,7 +31,7 @@ jobs:
         if: steps.initversion.outputs.version != steps.extractver.outputs.version
         uses: peter-evans/create-pull-request@v2.4.4
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'chore(release): ${{ steps.extractver.outputs.version }}'
           committer: hex-bot <dev@hexdigital.com>
           author: hex-bot <dev@hexdigital.com>
