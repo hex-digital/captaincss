@@ -1,0 +1,84 @@
+/**
+ * -=-=-=-=-=-=-=-=-
+ *     CONTENT
+ * -=-=-=-=-=-=-=-=-
+ * The Content object is used to create a 'stripe' of content within any container, capping its width to preserve a
+ * reasonable measure and improve readability, or for stylistic purpose and art direction.
+ *
+ * It can optionally add gutters to the left and right side of the content, such as if the content is being used
+ * inside of a container. This gutter will be the width of the container PLUS the size of the gutter, as the content
+ * uses the content-box display model.
+ *
+ * The BaseContent can have it's content centered aligned, using text-align: center, via the `centerText` prop. However,
+ * it can also intrinsically center the content, based on its natural, content-based widths, using the `center` prop.
+ *
+ * Finally, the tag can be changed using the `tag` prop, and a `maxWidth` can be optionally set, to override the size of
+ * the BaseContent. This is usually a `ch` value, such as 70ch, and used to maintain a reasonable reading masure.
+ */
+
+// Initialise globals in case this object is used without the framework
+$OBJECT_PREFIX: '' !default;
+$THEME: (
+  'content': (
+    'gutter': (
+      'default': 0,
+      'sm': 10px,
+      'md': 20px,
+      'lg': 40px,
+      'xl': 80px,
+    ),
+    'width': (
+      'sm': 360px,
+      'default': 70ch, // About 560px for common fonts at 16px
+      'md': 560px,
+      'lg': 720px,
+      'xl': 900px,
+    ),
+  ),
+) !default;
+
+// Get content settings from the global theme settings
+$content-gutter-sizes: captain('content', 'gutter');
+$content-width-sizes: captain('content', 'width');
+
+// Create the content class, adding the prefix defined in the config
+$content: #{'.' + $OBJECT_PREFIX + 'content'};
+
+@responsive {
+  #{$content} {
+    box-sizing: content-box;
+    display: block;
+    margin-left: initial;
+    margin-right: initial;
+    padding: 0;
+    width: 100%;
+
+    &--center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &--center-text {
+      text-align: center;
+    }
+
+    &--intrinsic-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @each $spacing-name, $spacing-unit in $content-width-sizes {
+      @include modifier($spacing-name) {
+        max-width: $spacing-unit;
+      }
+    }
+
+    @each $spacing-name, $spacing-unit in $content-gutter-sizes  {
+      @include modifier($spacing-name, $prefix: 'gutter-') {
+        padding-left: $spacing-unit;
+        padding-right: $spacing-unit;
+      }
+    }
+  }
+}

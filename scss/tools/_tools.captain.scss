@@ -1,0 +1,26 @@
+@function captain($keys...) {
+  @return map-deep-get($THEME, $keys...);
+}
+
+@mixin screen($breakpoint-name) {
+  @if $breakpoint-name == 'default' {
+    @content;
+  } @else {
+    @screen #{$breakpoint-name} {
+      @content;
+    }
+  }
+}
+
+@mixin modifier($modifier-name, $prefix: '', $mod: '--') {
+  @if ($modifier-name == 'default') {
+    & {
+      @content;
+    }
+  } @else {
+    &#{$mod}#{$prefix}#{$modifier-name} {
+      @content;
+    }
+  }
+}
+

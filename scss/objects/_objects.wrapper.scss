@@ -1,0 +1,47 @@
+// Initialise globals in case this object is used without the framework
+$OBJECT_PREFIX: '' !default;
+$THEME: (
+  'wrapper': (
+    'padding': (
+      'default': 20px,
+      'md': 40px,
+      'lg': 56px,
+      'xl': 80px,
+    ),
+    'maxWidth': (
+      'default': 1080px,
+      'sm': 800px,
+      'lg': 1200px,
+    ),
+  ),
+) !default;
+
+// Get wrapper settings from the global theme settings
+$wrapper-padding: captain('wrapper', 'padding');
+$wrapper-max-widths: captain('wrapper', 'maxWidth');
+
+// Create the wrapper class, adding the prefix defined in the config
+$wrapper: #{'.' + $OBJECT_PREFIX + 'wrapper'};
+
+@responsive {
+  #{$wrapper} {
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    @each $breakpoint-name, $spacing-unit in $wrapper-padding {
+      @include screen($breakpoint-name) {
+        padding-left: #{$spacing-unit};
+        padding-right: #{$spacing-unit};
+      }
+    }
+
+    @each $spacing-name, $spacing-unit in $wrapper-max-widths {
+      @include modifier($spacing-name) {
+        max-width: #{$spacing-unit};
+      }
+    }
+  }
+}

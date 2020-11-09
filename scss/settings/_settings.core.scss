@@ -1,0 +1,6 @@
+// Prefix all classes in the framework with this string
+$GLOBAL_PREFIX: '' !default;
+
+// Prefix all classes from these categories with these strings
+$OBJECT_PREFIX: $GLOBAL_PREFIX + 'o-' !default;
+$UTILITY_PREFIX: $GLOBAL_PREFIX + 'u-' !default;

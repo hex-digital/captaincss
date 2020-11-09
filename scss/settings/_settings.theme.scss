@@ -1,0 +1,32 @@
+$THEME: (
+  'debug': true,
+  'content': (
+    'gutter': (
+      'default': 0,
+      'sm': 10px,
+      'md': 20px,
+      'lg': 40px,
+      'xl': 80px,
+    ),
+    'width': (
+      'sm': 360px,
+      'default': 70ch, // About 560px for common fonts at 16px
+      'md': 560px,
+      'lg': 720px,
+      'xl': 900px,
+    ),
+  ),
+  'wrapper': (
+    'padding': (
+      'default': 20px,
+      'md': 40px,
+      'lg': 56px,
+      'xl': 80px,
+    ),
+    'maxWidth': (
+      'default': 1080px,
+      'sm': 800px,
+      'lg': 1200px,
+    ),
+  ),
+);
