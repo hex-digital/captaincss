@@ -1,0 +1,64 @@
+/**
+ * -=-=-=-=-=-=-=-=-
+ *     Stack
+ * -=-=-=-=-=-=-=-=-
+ * Flow elements require space to physically and conceptually separate them from the elements that come before and
+ * after them. This flow space should exist solely between children elements in a container, and not between an element
+ * and the container itself.
+ * See https://absolutely.every-layout.dev/layouts/stack/
+ *
+ * The Stack object is used to style the relationship between two elements, rather than the individual elements
+ * themselves. The Stack object injects margin between elements contained within it.
+ *
+ * This margin can change based on the relationship between those two elements. For example, a p that comes after
+ * another p may have a smaller margin than a h3 that comes after a p. The Stack handles this.
+ *
+ * Stacks can be used within stacks as well. All nested stacks can designate their own spacing value.
+ * This could be useful for laying out a form, where elements are grouped into a stack, and labels + inputs exist inside
+ * of nested stacks with different spacing.
+ *
+ * Some elements added to a stack may have a margin bottom added by default. This will alter the spacing between the
+ * elements and is usually not desirable. This margin bottom on all child elements is stripped by default. This
+ * behaviour can be turned off by setting the strip prop to false.
+ */
+
+// Initialise globals in case this object is used without the framework
+$OBJECT_PREFIX: '' !default;
+$THEME: (
+  'stack': (
+    'gap': map-merge(('default': 1.5rem), $tw-space),
+  ),
+) !default;
+
+// Get settings from the global theme settings
+$stack-gap-sizes: captain('stack', 'gap');
+
+// Create the class, adding the prefix defined in the config
+$stack: #{'.' + $OBJECT_PREFIX + 'stack'};
+
+@responsive {
+  #{$stack} {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    & > * {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    &--center {
+      @apply text-center;
+    }
+
+    /**
+     * The stack spaces all elements equally by default.
+     * This can be customised by specifying specific classes or tags in the theme settings, which are added here.
+     */
+    @each $spacing-name, $spacing-unit in $stack-gap-sizes {
+      @include modifier($spacing-name, $suffix: ' > * + *') {
+        margin-top: $spacing-unit;
+      }
+    }
+  }
+}

@@ -12,13 +12,13 @@
   }
 }
 
-@mixin modifier($modifier-name, $prefix: '', $mod: '--') {
+@mixin modifier($modifier-name, $prefix: '', $suffix: '', $mod: '--') {
   @if ($modifier-name == 'default') {
-    & {
+    &#{$suffix}{
       @content;
     }
   } @else {
-    &#{$mod}#{$prefix}#{$modifier-name} {
+    &#{$mod}#{$prefix}#{$modifier-name}#{$suffix} {
       @content;
     }
   }

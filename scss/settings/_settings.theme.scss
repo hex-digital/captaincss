@@ -16,6 +16,9 @@ $THEME: (
       'xl': 900px,
     ),
   ),
+  'stack': (
+    'gap': map-merge(('default': 1.5rem), $tw-space),
+  ),
   'wrapper': (
     'padding': (
       'default': 20px,
