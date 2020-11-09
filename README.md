@@ -5,11 +5,12 @@
 A happy medium: it does not provide you with UI or design out of the box, but instead provides a solid architectural baseline upon which anything can be built.
 
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+  <a href="https://www.npmjs.com/package/captaincss"><img alt="Version" src="https://img.shields.io/npm/v/captaincss?style=for-the-badge" /></a>
+  <a href="https://www.npmjs.com/package/captaincss"><img src="https://img.shields.io/npm/dt/captaincss.svg?style=for-the-badge" alt="Total Downloads"></a>
   <a href="https://github.com/hex-digital/captaincss/wiki" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-wip-red.svg" />
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-wip-red.svg?style=for-the-badge" />
   </a>
-  <a href="https://github.com/tailwindcss/tailwindcss/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/tailwindcss.svg" alt="License"></a>
+  <a href="https://github.com/hex-digital/captaincss/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/captaincss.svg?style=for-the-badge" alt="License"></a>
   <a href="https://twitter.com/jamiew_tv" target="_blank">
     <img alt="Twitter: jamiew_tv" src="https://img.shields.io/twitter/follow/jamiew_tv.svg?style=social" />
   </a>
