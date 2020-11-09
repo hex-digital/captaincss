@@ -1,6 +1,6 @@
 {
   "name": "captaincss",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An extensible, scalable CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and large or long-lasting projects",
   "license": "MIT",
   "repository": "https://github.com/hex-digital/captaincss.git",
@@ -10,7 +10,11 @@
     "Jamie Warburton <jamie@hexdigital.com>"
   ],
   "files": [
-    "*"
+    "assets",
+    "src",
+    "CHANGELOG.md",
+    "package.json",
+    "yarn.lock"
   ],
   "scripts": {
     "style": "eslint .",
@@ -25,6 +29,7 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
