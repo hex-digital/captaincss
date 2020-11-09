@@ -9,6 +9,7 @@
 
 @import 'tailwindcss/components';
 @layer components {
+  @import '../../../scss/objects/_objects.cluster';
   @import '../../../scss/objects/_objects.content';
   @import '../../../scss/objects/_objects.stack';
   @import '../../../scss/objects/_objects.wrapper';

@@ -1,5 +1,8 @@
 $THEME: (
   'debug': true,
+  'cluster': (
+    'gap': map-merge(('default': 1rem), $tw-space),
+  ),
   'content': (
     'gutter': (
       'default': 0,
