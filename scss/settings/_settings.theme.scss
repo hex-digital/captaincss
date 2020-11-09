@@ -19,6 +19,12 @@ $THEME: (
       'xl': 900px,
     ),
   ),
+  'frame': (
+    'ratios': (
+      '16\\:9': (16:9),
+      'golden': (1.618:1),
+    ),
+  ),
   'stack': (
     'gap': map-merge(('default': 1.5rem), $tw-space),
   ),
