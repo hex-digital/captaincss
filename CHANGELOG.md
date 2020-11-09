@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.4](https://github.com/hex-digital/captaincss/compare/v1.0.3...v1.0.4) (2020-11-09)
+
+
+### Bug Fixes
+
+* fix automatic releases ([ecdd0ae](https://github.com/hex-digital/captaincss/commit/ecdd0ae2233c3bc72086219befbbb4167888466d))
+
 ### [1.0.3](https://github.com/hex-digital/captaincss/compare/v1.0.2...v1.0.3) (2020-11-09)
 
 
