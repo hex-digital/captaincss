@@ -15,10 +15,18 @@
   "scripts": {
     "style": "eslint ."
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
     "prettier": "^2.1.2",
     "tailwindcss-export-config": "^2.3.0"
   },
