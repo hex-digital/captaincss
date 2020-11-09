@@ -20,7 +20,7 @@ A happy medium: it does not provide you with UI or design out of the box, but in
 ## Install
 
 ```sh
-yarn install
+yarn add -D captaincss
 ```
 
 ## Usage
