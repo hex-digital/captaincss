@@ -9,6 +9,8 @@
  * inside of a container. This gutter will be the width of the container PLUS the size of the gutter, as the content
  * uses the content-box display model.
  *
+ * The Content can be center-aligned within its parent element using Tailwind's .mx-auto class.
+ *
  * The Content can have it's content centered aligned, using Tailwind's .text-center. However, it can also intrinsically
  * center the content, based on its natural, content-based widths, using the `o-content--intrinsic-center`. This means
  * elements that are not 100% width will appear in the middle of the container, which can be preferable.
@@ -56,12 +58,11 @@ $content: #{'.' + $OBJECT_PREFIX + 'content'};
     width: 100%;
 
     &--center {
-      margin-left: auto;
-      margin-right: auto;
+      @apply mx-auto;
     }
 
-    &--center-text {
-      text-align: center;
+    &--text-center {
+      @apply text-center;
     }
 
     &--intrinsic-center {
