@@ -1,3 +1,4 @@
+// Get settings from the Captain's theme settings
 @function captain($keys...) {
   @return map-deep-get($THEME, $keys...);
 }
@@ -18,6 +19,14 @@
   @return z-index($_key);
 }
 
+/**
+ * Output the CSS for theme settings that apply at different screen breakpoints
+ * E.G. 'padding': (
+ *        'default': 20px,
+ *        'md': 40px,
+ *        'lg': 80px,
+ *      ),
+ */
 @mixin screen($breakpoint-name) {
   @if $breakpoint-name == 'default' {
     @content;
@@ -28,6 +37,14 @@
   }
 }
 
+/**
+ * Output the CSS for theme settings that apply different modifiers
+ * E.G. 'maxWidth': (
+ *        'default': 1080px,
+ *        'sm': 800px,
+ *        'lg': 1200px,
+ *      ),
+ */
 @mixin modifier($modifier-name, $prefix: '', $suffix: '', $mod: '--') {
   @if ($modifier-name == 'default') {
     &#{$suffix}{
