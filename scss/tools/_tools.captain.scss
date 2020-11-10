@@ -2,6 +2,22 @@
   @return map-deep-get($THEME, $keys...);
 }
 
+// No more arbitrary z-indexes around the codebase. Use a uniform, well-intentioned map via this helper.
+@function z-index($layer) {
+  $z-index: captain('z-index');
+
+  @if not map-has-key($z-index, $layer) {
+    @warn 'No layer found for `#{$layer}` in theme.z-index map - z-index property will be omitted.';
+  }
+
+  @return map-get($z-index, $layer);
+}
+
+// Shorter alias for the z-index function
+@function z($_key) {
+  @return z-index($_key);
+}
+
 @mixin screen($breakpoint-name) {
   @if $breakpoint-name == 'default' {
     @content;
