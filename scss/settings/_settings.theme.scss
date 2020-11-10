@@ -1,7 +1,7 @@
 // TODO Allow for easily overriding and extending of theme
 
 $THEME: (
-  'debug': true,
+  'debug': false,
   'cluster': (
     'gap': map-merge(('default': 1rem), $tw-space),
   ),
