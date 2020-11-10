@@ -1,3 +1,5 @@
+// TODO Allow for easily overriding and extending of theme
+
 $THEME: (
   'debug': true,
   'cluster': (
@@ -27,6 +29,9 @@ $THEME: (
   ),
   'stack': (
     'gap': map-merge(('default': 1.5rem), $tw-space),
+  ),
+  'text': (
+    // TODO Support both clamped text styles and responsive text styles for the user to choose
   ),
   'wrapper': (
     'padding': (
