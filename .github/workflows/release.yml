@@ -32,7 +32,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Get version from package.json before release step
         id: initversion
-        run: echo "$(npm run get-version --silent)"
+        run: echo "::set-output name=initversion::$(npm run get-version --silent)"
       - name: 'Release to NPM and GitHub'
         id: release
         env:
@@ -46,7 +46,7 @@ jobs:
         run: npx semantic-release
       - name: 'Get version from package.json after release step'
         id: extractver
-        run: echo "$(npm run get-version --silent)"
+        run: echo "::set-output name=extractver::$(npm run get-version --silent)"
 #        REMOVED FOR NOW AS NOT WORKING ON PROTECTED BRANCH
 #      - name: 'Create Pull Request with updated package files'
 #        uses: peter-evans/create-pull-request@v2.4.4
