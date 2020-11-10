@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/hex-digital/captaincss/compare/v1.0.4...v1.1.0) (2020-11-10)
+
+
+### Features
+
+* add o-skip-link object for screen readers ([#10](https://github.com/hex-digital/captaincss/issues/10)) ([b751921](https://github.com/hex-digital/captaincss/commit/b751921f852c640acbdd33fd1d51c4162ef89341))
+* add z-index map to settings and a helper tool to captain ([#11](https://github.com/hex-digital/captaincss/issues/11)) ([3a16b5c](https://github.com/hex-digital/captaincss/commit/3a16b5c6d9ee3c35e20bfb167ee83ccf10cc92f9))
+* allow theme to be overridden by adding !default to the variable ([2f7aaa6](https://github.com/hex-digital/captaincss/commit/2f7aaa62ce1deaddce74530e013dd9c55945fcac))
+
+
+### Bug Fixes
+
+* set debug to false in the captain theme by default ([38520e0](https://github.com/hex-digital/captaincss/commit/38520e0a3a6ee361c4a86448f8775a79a593097d))
+
 ### [1.0.4](https://github.com/hex-digital/captaincss/compare/v1.0.3...v1.0.4) (2020-11-09)
 
 
