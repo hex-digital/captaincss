@@ -4,8 +4,8 @@ $THEME: (
   'debug': false,
 ) !default;
 
-$outline: map-get($THEME, 'debug');
-$depth: map-get($THEME, 'debug');
+$outline: captain('debug');
+$depth: captain('debug');
 
 @if $outline == true {
   body { outline: 1px solid #2980b9 !important; }

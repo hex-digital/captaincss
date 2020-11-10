@@ -21,28 +21,39 @@ A happy medium: it does not provide you with UI or design out of the box, but in
 ## Install
 
 ```sh
-yarn add -D captaincss
+yarn add -D captaincss // or npm install -D captaincss
 ```
 
 ## Usage
 
-```sh
-Usage command or instruction
-```
-
-## Run tests
+Create a main.scss file.
 
 ```sh
-Test command
+cp ./node_modules/captaincss/scss/main.example.scss ./assets/scss/.
 ```
+
+Generate a SCSS version of your tailwind config. We recommend adding to your build process.
+We provide a Webpack plugin to automate this step.
+
+```js
+// webpack.config.js
+const Captaincss = require('captaincss');
+
+module.exports = {
+  plugins: [
+    // Takes Tailwind's config and outputs it to SCSS to be used
+    new Captaincss(),
+  ],
+}
+```
+
+Use main.scss as an entry point when bundling, and you're good to go!
 
 ## Author
 
 👤 **Jamie Warburton**
 
-* Website: https://jamiewarburton.dev
 * Twitter: [@jamiew\_tv](https://twitter.com/jamiew\_tv)
-* Github: [@jamiewarb](https://github.com/jamiewarb)
 
 ## 🤝 Contributing
 

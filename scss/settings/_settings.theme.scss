@@ -1,5 +1,7 @@
+// TODO Allow for easily overriding and extending of theme
+
 $THEME: (
-  'debug': true,
+  'debug': false,
   'cluster': (
     'gap': map-merge(('default': 1rem), $tw-space),
   ),
@@ -41,4 +43,18 @@ $THEME: (
       'lg': 1200px,
     ),
   ),
-);
+  'z-index': (
+    aboveAll             : 100,
+    modal                : 65,
+    overlay              : 60,
+    error                : 50,
+
+    componentsForeground : 40,
+    components           : 30,
+    componentsBackground : 20,
+
+    foreground           : 5,
+    base                 : 1,
+    background           : -1,
+  ),
+) !default;
