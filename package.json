@@ -1,5 +1,5 @@
 {
-  "name": "captaincss",
+  "name": "@captaincss/captaincss",
   "version": "1.1.0",
   "description": "An extensible, scalable CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and large or long-lasting projects",
   "license": "MIT",
