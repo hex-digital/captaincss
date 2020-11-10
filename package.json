@@ -9,6 +9,7 @@
   "contributors": [
     "Jamie Warburton <jamie@hexdigital.com>"
   ],
+  "main": "src/captaincss.js",
   "files": [
     "assets",
     "src",
