@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.1](https://github.com/hex-digital/captaincss/compare/v1.2.0...v1.2.1) (2020-11-11)
+
+
+### Bug Fixes
+
+* add missing tailwindcss-export-config dependency ([c755f02](https://github.com/hex-digital/captaincss/commit/c755f0206b6922da81e4f98c177cccd287827502))
+
 ## [1.2.0](https://github.com/hex-digital/captaincss/compare/v1.1.0...v1.2.0) (2020-11-11)
 
 

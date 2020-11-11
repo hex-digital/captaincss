@@ -1,6 +1,6 @@
 {
   "name": "@captaincss/captaincss",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "An extensible, scalable CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and large or long-lasting projects",
   "license": "MIT",
   "repository": "https://github.com/hex-digital/captaincss.git",
