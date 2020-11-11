@@ -13,10 +13,11 @@ $modes:
   $deepest // eot eot-ie woff2 woff ttf svg - Standard, Safari, Android, iOS, legacy iOS and IE8+9
   !default;
 
-@mixin fontFace($family, $src, $style: normal, $weight: normal) {
+@mixin fontFace($family, $src, $style: normal, $weight: normal, $display: swap, $mode: $FONT_OUTPUT_MODE) {
   @font-face {
     font-family: $family;
-    @include outputFontType($FONT_OUTPUT_MODE, $family, $src);
+    @include outputFontType($mode, $family, $src);
+    font-display: $display;
     font-style: $style;
     font-weight: $weight;
   }
