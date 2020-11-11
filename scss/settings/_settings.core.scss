@@ -4,3 +4,5 @@ $GLOBAL_PREFIX: '' !default;
 // Prefix all classes from these categories with these strings
 $OBJECT_PREFIX: $GLOBAL_PREFIX + 'o-' !default;
 $UTILITY_PREFIX: $GLOBAL_PREFIX + 'u-' !default;
+
+$FONT_OUTPUT_MODE: 'modern-deeper' !default;
