@@ -19,7 +19,7 @@ class Captaincss {
   }
 
   apply(compiler) {
-    compiler.hooks.beforeRun.tap(pluginName, () => {
+    compiler.hooks.compile.tap(pluginName, () => {
       if (!this.userOpts.config) {
         console.warn(
           `${pluginName}:`,
