@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.2](https://github.com/hex-digital/captaincss/compare/v1.3.1...v1.3.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* add font-display to the fontFace mixin and a mode override ([5c999e8](https://github.com/hex-digital/captaincss/commit/5c999e881dde9d673e580e69bf2bc21e1f53855b))
+
 ### [1.3.1](https://github.com/hex-digital/captaincss/compare/v1.3.0...v1.3.1) (2020-11-11)
 
 
