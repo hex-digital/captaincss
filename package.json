@@ -12,6 +12,7 @@
   "main": "src/captaincss.js",
   "files": [
     "assets",
+    "scss",
     "src",
     "CHANGELOG.md",
     "package.json",
