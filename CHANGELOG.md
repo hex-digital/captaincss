@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.1](https://github.com/hex-digital/captaincss/compare/v1.3.0...v1.3.1) (2020-11-11)
+
+
+### Bug Fixes
+
+* fix captaincss outputting tailwind config re-triggering watched build, endlessly ([c90433d](https://github.com/hex-digital/captaincss/commit/c90433d4d0ecd97228cf926f91bc5a08ab0af266))
+
 ## [1.3.0](https://github.com/hex-digital/captaincss/compare/v1.2.2...v1.3.0) (2020-11-11)
 
 
