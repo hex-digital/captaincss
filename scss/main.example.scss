@@ -1,27 +1,27 @@
 @import '.cache/captaincss/tailwind.config';
 // Customise this file by adding your own partials.
 // All Captain's variables can be overridden by simply declaring them earlier on in a partial.
-@import 'captaincss/scss/settings/_settings.core';
+@import '@captaincss/captaincss/scss/settings/_settings.core';
 // We recommend you create your own _settings.theme partial and load it here.
-@import 'captaincss/scss/settings/_settings.theme';
+@import '@captaincss/captaincss/scss/settings/_settings.theme';
 
-@import 'captaincss/scss/tools/_tools.captain';
-@import 'captaincss/scss/tools/_tools.helpers';
+@import '@captaincss/captaincss/scss/tools/_tools.captain';
+@import '@captaincss/captaincss/scss/tools/_tools.helpers';
 
 @import 'tailwindcss/base';
 
 @import 'tailwindcss/components';
 @layer components {
   // Each object can be used on its own in any project. The only dependency is the _tools.captain file.
-  @import 'captaincss/scss/objects/_objects.cluster';
-  @import 'captaincss/scss/objects/_objects.content';
-  @import 'captaincss/scss/objects/_objects.frame';
-  @import 'captaincss/scss/objects/_objects.screen-reader';
-  @import 'captaincss/scss/objects/_objects.stack';
-  @import 'captaincss/scss/objects/_objects.wrapper';
+  @import '@captaincss/captaincss/scss/objects/_objects.cluster';
+  @import '@captaincss/captaincss/scss/objects/_objects.content';
+  @import '@captaincss/captaincss/scss/objects/_objects.frame';
+  @import '@captaincss/captaincss/scss/objects/_objects.screen-reader';
+  @import '@captaincss/captaincss/scss/objects/_objects.stack';
+  @import '@captaincss/captaincss/scss/objects/_objects.wrapper';
 }
 
 @import 'tailwindcss/utilities';
 @layer utilities {
-  @import 'captaincss/scss/utilities/_utilities.debug';
+  @import '@captaincss/captaincss/scss/utilities/_utilities.debug';
 }

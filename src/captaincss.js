@@ -1,8 +1,9 @@
-const path = require('path');
 const TailwindExportConfig = require('tailwindcss-export-config');
 
+const pluginName = 'captaincss';
+
 const defaultOptions = {
-  config: path.resolve(__dirname + '/../test/tailwind.config.js'),
+  config: '.',
   destination: 'node_modules/.cache/captaincss/_tailwind.config',
   format: 'scss',
   prefix: 'tw',
@@ -12,8 +13,20 @@ const defaultOptions = {
 };
 
 class Captaincss {
+  constructor(userOpts = {}) {
+    this.userOpts = userOpts;
+    this.options = Object.assign(defaultOptions, userOpts);
+  }
+
   apply(compiler) {
-    compiler.hooks.beforeRun.tap('captaincss', () => {
+    compiler.hooks.beforeRun.tap(pluginName, () => {
+      if (!this.userOpts.config) {
+        console.warn(
+          `${pluginName}:`,
+          `No config key provided. Using default ${this.options.config}`
+        );
+      }
+
       // TODO Allow options to be passed via the plugin
       const converter = new TailwindExportConfig(defaultOptions);
 
@@ -21,10 +34,10 @@ class Captaincss {
       converter
         .writeToFile()
         .then(() => {
-          console.log('captaincss: Tailwind config exported to', defaultOptions.destination);
+          console.log(`${pluginName}: Tailwind config exported to`, defaultOptions.destination);
         })
         .catch((error) => {
-          console.warn('captaincss:', error.message);
+          console.warn(`${pluginName}:`, error.message);
         });
     });
   }
