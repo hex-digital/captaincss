@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/hex-digital/captaincss/compare/v1.2.2...v1.3.0) (2020-11-11)
+
+
+### Features
+
+* add fontFace mixin with a font_output_mode to output font face statements easily ([0081940](https://github.com/hex-digital/captaincss/commit/0081940a967d280b56cac873dd443468fd9594d7))
+
+
+### Bug Fixes
+
+* allow Captaincss webpack plugin to run when webpack is in watch mode as well ([5b6acab](https://github.com/hex-digital/captaincss/commit/5b6acabccd4501013e1a54a34dbf9778fdc5fbae))
+
 ### [1.2.2](https://github.com/hex-digital/captaincss/compare/v1.2.1...v1.2.2) (2020-11-11)
 
 
