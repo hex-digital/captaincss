@@ -36,7 +36,10 @@ module.exports = {
     new CleanWebpackPlugin(),
 
     // Takes Tailwind's config and outputs it to SCSS to be used
-    new Captaincss(),
+    new Captaincss({
+      config: paths.root + '/tailwind.config.js',
+      destination: 'src/scss/_tailwind.config',
+    }),
 
     // Only update what has changed on hot reload
     new webpack.HotModuleReplacementPlugin(),
