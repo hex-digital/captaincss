@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.2](https://github.com/hex-digital/captaincss/compare/v1.2.1...v1.2.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* add missing scss directory to release ([9c1e61e](https://github.com/hex-digital/captaincss/commit/9c1e61e99f4397c9004a820cca7fdf7f85b04eae))
+
 ### [1.2.1](https://github.com/hex-digital/captaincss/compare/v1.2.0...v1.2.1) (2020-11-11)
 
 
