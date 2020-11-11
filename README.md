@@ -37,12 +37,16 @@ We provide a Webpack plugin to automate this step.
 
 ```js
 // webpack.config.js
+const path = require('path');
 const Captaincss = require('@captaincss/captaincss');
 
 module.exports = {
   plugins: [
     // Takes Tailwind's config and outputs it to SCSS to be used
-    new Captaincss(),
+    new Captaincss({
+      config: path.resolve(__dirname, 'tailwind.config.js'),
+      destination: path.resolve(__dirname, 'src/_tailwind.config'),
+    }),
   ],
 }
 ```
