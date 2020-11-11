@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/hex-digital/captaincss/compare/v1.1.0...v1.2.0) (2020-11-11)
+
+
+### Features
+
+* allow user to pass in own options to Captaincss webpack plugin ([c328088](https://github.com/hex-digital/captaincss/commit/c328088ea542f93dc1ef96f8466b434152cdb55e))
+
 ## [1.1.0](https://github.com/hex-digital/captaincss/compare/v1.0.4...v1.1.0) (2020-11-10)
 
 
