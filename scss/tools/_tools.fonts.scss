@@ -14,16 +14,22 @@ $modes:
   !default;
 
 @mixin fontFace($family, $src, $style: normal, $weight: normal, $display: swap, $mode: $FONT_OUTPUT_MODE) {
-  @font-face {
-    font-family: $family;
-    @include outputFontType($mode, $family, $src);
-    font-display: $display;
-    font-style: $style;
-    font-weight: $weight;
+  @include fontFaceManualSrc($family, $style, $weight, $display, $mode) {
+    @include fontSrc($mode, $family, $src);
   }
 }
 
-@mixin outputFontType($mode, $family, $src) {
+@mixin fontFaceManualSrc($family, $style: normal, $weight: normal, $display: swap, $mode: $FONT_OUTPUT_MODE) {
+  @font-face {
+    font-family: $family;
+    font-display: $display;
+    font-style: $style;
+    font-weight: $weight;
+    @content;
+  }
+}
+
+@mixin fontSrc($mode, $family, $src) {
   @if not list.index($modes, $mode) {
     @warn 'No mode found for `#{$mode}` in font modes map - falling back to modern-deeper mode.';
     $mode: $modern-deeper;
