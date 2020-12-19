@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Captaincss = require('../../src/captaincss');
 
 module.exports = {
   // Where webpack looks to start building the bundle
@@ -34,12 +33,6 @@ module.exports = {
   plugins: [
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
-
-    // Takes Tailwind's config and outputs it to SCSS to be used
-    new Captaincss({
-      config: paths.root + '/tailwind.config.js',
-      destination: 'src/scss/_tailwind.config',
-    }),
 
     // Only update what has changed on hot reload
     new webpack.HotModuleReplacementPlugin(),
