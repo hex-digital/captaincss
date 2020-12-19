@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://github.com/hex-digital/captaincss/compare/v1.3.2...v1.4.0) (2020-12-19)
+
+
+### Features
+
+* add element classes to allow stretching out of wrappers ([4eb4cdc](https://github.com/hex-digital/captaincss/commit/4eb4cdceaf0b150da929c0d2d7cb98269d614be1))
+* allow font helpers to have src manually specified ([c50040a](https://github.com/hex-digital/captaincss/commit/c50040a71552c548242f8b88a84465d2618df876))
+
 ### [1.3.2](https://github.com/hex-digital/captaincss/compare/v1.3.1...v1.3.2) (2020-11-11)
 
 
