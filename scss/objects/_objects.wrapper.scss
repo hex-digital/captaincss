@@ -57,5 +57,17 @@ $wrapper: #{'.' + $OBJECT_PREFIX + 'wrapper'};
         max-width: #{$spacing-unit};
       }
     }
+
+    &__wide {
+      margin-left: calc(-75vw / 2 + 100% / 2);
+      margin-right: calc(-75vw / 2 + 100% / 2);
+      max-width: none;
+    }
+
+    &__bleed {
+      margin-left: calc(-100vw / 2 + 100% / 2);
+      margin-right: calc(-100vw / 2 + 100% / 2);
+      max-width: 100vw;
+    }
   }
 }
