@@ -22,6 +22,14 @@
  * behaviour can be turned off by setting the strip prop to false.
  */
 
+module.exports.defaults = {
+  stack: {
+    gap: {
+      drummon: '1rem',
+    },
+  },
+};
+
 module.exports = function ({ addComponents, theme, variants, e }) {
   const gap = theme('stack.gap');
 
