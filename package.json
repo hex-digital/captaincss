@@ -44,7 +44,9 @@
     "semantic-release-slack-bot": "^1.6.2",
     "tailwindcss": "^2.x.x"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
   "browserslist": [
     "> 1%",
     "last 4 versions",
