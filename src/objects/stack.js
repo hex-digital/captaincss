@@ -30,7 +30,7 @@ module.exports.defaults = {
   },
 };
 
-module.exports = function ({ addComponents, theme, e }) {
+module.exports = function ({ addComponents, theme, variants, e }) {
   const gap = theme('stack.gap');
 
   const stack = [
@@ -56,5 +56,5 @@ module.exports = function ({ addComponents, theme, e }) {
     });
   }
 
-  return addComponents(stack);
+  return addComponents(stack, variants('stack'));
 };

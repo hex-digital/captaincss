@@ -4,4 +4,7 @@ module.exports = {
       gap: theme('spacing'),
     }),
   },
+  variants: {
+    stack: ['responsive'],
+  },
 };
