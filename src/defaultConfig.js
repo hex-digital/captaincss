@@ -1,5 +1,8 @@
 module.exports = {
   theme: {
+    cluster: (theme) => ({
+      gap: theme('spacing'),
+    }),
     stack: (theme) => ({
       gap: theme('spacing'),
     }),
