@@ -4,6 +4,7 @@ module.exports = {
       gap: theme('spacing'),
     }),
     wrapper: {
+      // Padding keys must match a screen breakpoint name or it will be ignored
       padding: {
         DEFAULT: '20px',
         md: '40px',
