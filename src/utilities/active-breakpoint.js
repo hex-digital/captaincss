@@ -1,4 +1,6 @@
 module.exports = function ({ addComponents, theme }) {
+  if (process.env.NODE_ENV === 'production') return;
+
   const screens = theme('activeBreakpoint.screens');
   const prefix = theme('activeBreakpoint.prefix');
   const suffix = theme('activeBreakpoint.suffix');
