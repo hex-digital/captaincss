@@ -20,6 +20,10 @@
  * Some elements added to a stack may have a margin bottom added by default. This will alter the spacing between the
  * elements and is usually not desirable. This margin bottom on all child elements is stripped by default. This
  * behaviour can be turned off by setting the strip prop to false.
+ *
+ * The stack could be built with the following Tailwind classes: flex flex-col space-x-{value}. However, it's such a
+ * common layout object that it deserves its own name. This means it is more obvious and recognisable in the codebase
+ * amongst other utilities, and provides a common name with which developers can reference it.
  */
 
 module.exports = function ({ addComponents, theme, variants, e }) {
@@ -28,22 +32,30 @@ module.exports = function ({ addComponents, theme, variants, e }) {
   const stack = [
     {
       '.stack': {
+        '--stack-space': 0,
+        '--stack-reverse': 0,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
 
+        '&--reverse': {
+          '--stack-reverse': 1,
+        },
+
         '> *': {
-          marginBottom: 0,
-          marginTop: 0,
+          marginTop: 'calc(var(--stack-space) * calc(1 - var(--stack-reverse)))',
+          marginBottom: 'calc(var(--stack-space) * var(--tw-space-y-reverse))',
         },
       },
     },
   ];
 
   for (const [modifier, spacingValue] of Object.entries(gap)) {
+    const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
+
     stack.push({
-      [`.${e(`stack--${modifier}`)} > * + *`]: {
-        marginTop: spacingValue,
+      [`.${e(`stack${mod}`)} > * + *`]: {
+        '--stack-space': spacingValue,
       },
     });
   }

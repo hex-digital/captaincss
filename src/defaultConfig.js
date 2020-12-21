@@ -19,7 +19,10 @@ module.exports = {
       },
     },
     stack: (theme) => ({
-      gap: theme('spacing'),
+      gap: {
+        DEFAULT: '1rem',
+        ...theme('space'),
+      },
     }),
     wrapper: {
       // Padding keys must match a screen breakpoint name or it will be ignored
