@@ -1,5 +1,13 @@
 module.exports = {
   theme: {
+    activeBreakpoint: (theme) => ({
+      screens: theme('screens'),
+      position: ['top', 'right'],
+      prefix: '',
+      suffix: '',
+      ignoreScreens: ['dark'],
+      styles: {},
+    }),
     cluster: (theme) => ({
       gap: theme('spacing'),
     }),

@@ -8,6 +8,7 @@ const addWrapperComponent = require('./objects/wrapper');
 
 const addSkipLinkComponent = require('./objects/skip-link');
 
+const addActiveBreakpointUtility = require('./utilities/active-breakpoint');
 const addIntrinsicCenterUtility = require('./utilities/intrinsic-center');
 
 module.exports = plugin(function (params) {
@@ -18,5 +19,6 @@ module.exports = plugin(function (params) {
 
   addSkipLinkComponent(params);
 
+  addActiveBreakpointUtility(params);
   addIntrinsicCenterUtility(params);
 }, defaultConfig);

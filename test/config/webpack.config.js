@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: paths.build,
     filename: '[name].bundle.js',
-    publicPath: '/',
+    publicPath: '',
   },
 
   // Control how source maps are generated
