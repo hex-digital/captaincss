@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   // Where webpack looks to start building the bundle
-  entry: [paths.src + '/scss/main.scss'],
+  entry: [paths.src + '/css/main.css'],
 
   // Where webpack outputs the assets and bundles
   output: {
@@ -58,7 +58,7 @@ module.exports = {
     rules: [
       // Styles: Inject CSS into the head with source maps
       {
-        test: /\.(scss|css)$/,
+        test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -75,7 +75,6 @@ module.exports = {
               },
             },
           },
-          { loader: 'sass-loader', options: { sourceMap: true } },
         ],
       },
 
