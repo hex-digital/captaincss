@@ -2,5 +2,3 @@
 node_modules/
 dist/
 .idea
-
-src/scss/_tailwind.config.scss
