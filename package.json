@@ -9,7 +9,7 @@
   "contributors": [
     "Jamie Warburton <jamie@hexdigital.com>"
   ],
-  "main": "src/captaincss.js",
+  "main": "src/index.js",
   "files": [
     "assets",
     "scss",
@@ -27,6 +27,9 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
+  "peerDependencies": {
+    "tailwindcss": "^2.0.2"
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
@@ -38,13 +41,15 @@
     "husky": "^4.3.0",
     "prettier": "^2.1.2",
     "semantic-release": "^17.2.2",
-    "semantic-release-slack-bot": "^1.6.2"
+    "semantic-release-slack-bot": "^1.6.2",
+    "tailwindcss": "^2.x.x"
   },
   "dependencies": {
-    "tailwindcss-export-config": "^2.3.0"
+    "lodash": "^4.17.20"
   },
   "browserslist": [
     "> 1%",
+    "last 4 versions",
     "not edge <= 18",
     "not ie 11",
     "not op_mini all"

@@ -22,43 +22,31 @@
  * behaviour can be turned off by setting the strip prop to false.
  */
 
-// Initialise globals in case this object is used without the framework
-$OBJECT_PREFIX: '' !default;
-$THEME: (
-  'stack': (
-    'gap': map-merge(('default': 1.5rem), $tw-space),
-  ),
-) !default;
+module.exports = function ({ addComponents, theme, variants, e }) {
+  const gap = theme('stack.gap');
 
-// Get settings from the global theme settings
-$stack-gap-sizes: captain('stack', 'gap');
+  const stack = [
+    {
+      '.stack': {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
 
-// Create the class, adding the prefix defined in the config
-$stack: #{'.' + $OBJECT_PREFIX + 'stack'};
+        '> *': {
+          marginBottom: 0,
+          marginTop: 0,
+        },
+      },
+    },
+  ];
 
-@responsive {
-  #{$stack} {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    & > * {
-      margin-bottom: 0;
-      margin-top: 0;
-    }
-
-    &--center {
-      @apply text-center;
-    }
-
-    /**
-     * The stack spaces all elements equally by default.
-     * This can be customised by specifying specific classes or tags in the theme settings, which are added here.
-     */
-    @each $spacing-name, $spacing-unit in $stack-gap-sizes {
-      @include modifier($spacing-name, $suffix: ' > * + *') {
-        margin-top: $spacing-unit;
-      }
-    }
+  for (const [modifier, spacingValue] of Object.entries(gap)) {
+    stack.push({
+      [`.${e(`stack--${modifier}`)} > * + *`]: {
+        marginTop: spacingValue,
+      },
+    });
   }
-}
+
+  return addComponents(stack, variants('stack'));
+};

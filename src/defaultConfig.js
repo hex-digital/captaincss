@@ -1,0 +1,36 @@
+module.exports = {
+  theme: {
+    cluster: (theme) => ({
+      gap: theme('spacing'),
+    }),
+    frame: {
+      ratios: {
+        '1:1': '1:1',
+        '16:9': '16:9',
+        golden: '1.618:1',
+      },
+    },
+    stack: (theme) => ({
+      gap: theme('spacing'),
+    }),
+    wrapper: {
+      // Padding keys must match a screen breakpoint name or it will be ignored
+      padding: {
+        DEFAULT: '20px',
+        md: '40px',
+        lg: '56px',
+        xl: '80px',
+      },
+      maxWidth: {
+        DEFAULT: '1080px',
+        sm: '800px',
+        lg: '1440px',
+      },
+    },
+  },
+  variants: {
+    cluster: ['responsive'],
+    frame: ['responsive'],
+    stack: ['responsive'],
+  },
+};
