@@ -1,9 +1,0 @@
-@function map-deep-get($map, $keys...) {
-  @each $key in $keys {
-    @if not map-has-key($map, $key) {
-      @warn 'Key `#{$key}` not found in map `#{$map}`. Will return null';
-    }
-    $map: map-get($map, $key);
-  }
-  @return $map;
-}
