@@ -29,6 +29,8 @@ module.exports = {
     },
   },
   variants: {
+    cluster: ['responsive'],
+    frame: ['responsive'],
     stack: ['responsive'],
   },
 };
