@@ -3,6 +3,13 @@ module.exports = {
     cluster: (theme) => ({
       gap: theme('spacing'),
     }),
+    frame: {
+      ratios: {
+        '1:1': '1:1',
+        '16:9': '16:9',
+        golden: '1.618:1',
+      },
+    },
     stack: (theme) => ({
       gap: theme('spacing'),
     }),
