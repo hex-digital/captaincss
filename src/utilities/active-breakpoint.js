@@ -1,6 +1,8 @@
+const { pluginDisabled } = require('../utilities');
+
 module.exports = function ({ addComponents, config, theme }) {
   if (process.env.NODE_ENV === 'production') return;
-  if (config('captain.plugins.activeBreakpoint') === false) return;
+  if (pluginDisabled('activeBreakpoint', config)) return;
 
   const screens = theme('activeBreakpoint.screens');
   const prefix = theme('activeBreakpoint.prefix');

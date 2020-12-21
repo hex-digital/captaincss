@@ -10,8 +10,10 @@
  * onto multiple lines.
  */
 
+const { pluginDisabled } = require('../utilities');
+
 module.exports = function ({ addComponents, config, theme, variants, e }) {
-  if (config('captain.plugins.cluster') === false) return;
+  if (pluginDisabled('cluster', config)) return;
 
   const gap = theme('cluster.gap');
 

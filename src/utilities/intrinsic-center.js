@@ -4,8 +4,10 @@
  * elements that are not 100% width will appear in the middle of the container, which can be preferable.
  */
 
+const { pluginDisabled } = require('../utilities');
+
 module.exports = function ({ addUtilities, config }) {
-  if (config('captain.plugins.intrinsicCenter') === false) return;
+  if (pluginDisabled('intrinsicCenter', config)) return;
 
   addUtilities([
     {

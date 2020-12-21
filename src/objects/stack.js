@@ -26,8 +26,10 @@
  * amongst other utilities, and provides a common name with which developers can reference it.
  */
 
+const { pluginDisabled } = require('../utilities');
+
 module.exports = function ({ addComponents, config, theme, variants, e }) {
-  if (config('captain.plugins.stack') === false) return;
+  if (pluginDisabled('stack', config)) return;
 
   const gap = theme('stack.gap');
 

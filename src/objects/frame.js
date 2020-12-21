@@ -9,8 +9,10 @@
  * device orientation.
  */
 
+const { pluginDisabled } = require('../utilities');
+
 module.exports = function ({ addComponents, config, theme, variants, e }) {
-  if (config('captain.plugins.config') === false) return;
+  if (pluginDisabled('frame', config)) return;
 
   const ratios = theme('frame.ratios');
 

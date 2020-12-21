@@ -73,3 +73,13 @@ module.exports.mapMinWidthsToValues = function mapMinWidthsToValues(minWidths, s
 
   return mapping;
 };
+
+module.exports.pluginDisabled = function pluginDisabled(pluginName, config) {
+  const plugins = config(`captain.plugins`);
+
+  if (_.isArray(plugins)) {
+    return plugins.includes(pluginName);
+  }
+
+  if (config(`captain.plugins.${pluginName}`) === false) return false;
+};

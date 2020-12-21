@@ -4,8 +4,10 @@
  * -=-=-=-=-=-=-=-=-
  */
 
+const { pluginDisabled } = require('../utilities');
+
 module.exports = function ({ addComponents, config, variants }) {
-  if (config('captain.plugins.skipLink') === false) return;
+  if (pluginDisabled('skipLink', config)) return;
 
   const skipLink = [
     {

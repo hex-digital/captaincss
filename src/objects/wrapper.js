@@ -13,10 +13,10 @@
  */
 
 const _ = require('lodash');
-const { extractMinWidths, mapMinWidthsToValues } = require('../utilities');
+const { extractMinWidths, mapMinWidthsToValues, pluginDisabled } = require('../utilities');
 
 module.exports = function ({ addComponents, config, theme, variants, e }) {
-  if (config('captain.plugins.wrapper') === false) return;
+  if (pluginDisabled('wrapper', config)) return;
 
   const screens = theme('wrapper.screens', theme('screens'));
   const minWidths = extractMinWidths(screens);
