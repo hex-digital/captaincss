@@ -26,32 +26,39 @@ yarn add -D @captaincss/captaincss # or npm install -D @captaincss/captaincss
 
 ## Usage
 
-Create a main.scss file.
+1. Install and setup Tailwind in your project: https://tailwindcss.com/docs/installation
 
-```sh
-cp ./node_modules/@captaincss/captaincss/scss/main.example.scss ./assets/scss/.
-```
-
-Generate a SCSS version of your tailwind config. We recommend adding to your build process.
-We provide a Webpack plugin to automate this step.
+2. Add CaptainCSS as a plugin in your tailwind.config.js:
 
 ```js
-// webpack.config.js
-const path = require('path');
-const Captaincss = require('@captaincss/captaincss');
-
+// tailwind.config.js
 module.exports = {
+  theme: {},
   plugins: [
-    // Takes Tailwind's config and outputs it to SCSS to be used
-    new Captaincss({
-      config: path.resolve(__dirname, 'tailwind.config.js'),
-      destination: path.resolve(__dirname, 'src/_tailwind.config'),
-    }),
+    require('@captaincss/captaincss'),
   ],
 }
 ```
 
-Use main.scss as an entry point when bundling, and you're good to go!
+3. Configure Captain's theme settings and variants in your tailwind config, exactly like Tailwind. Check `defaultConfig.js` for Captain's default configuration.
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      frame: {
+        ratio: {
+          '4:3': '4:3',
+        }
+      }
+    }
+  },
+  plugins: [
+    require('@captaincss/captaincss'),
+  ],
+}
+```
 
 ## Author
 

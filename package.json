@@ -12,7 +12,6 @@
   "main": "src/index.js",
   "files": [
     "assets",
-    "scss",
     "src",
     "CHANGELOG.md",
     "package.json",
