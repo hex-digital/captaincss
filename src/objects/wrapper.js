@@ -15,7 +15,9 @@
 const _ = require('lodash');
 const { extractMinWidths, mapMinWidthsToValues } = require('../utilities');
 
-module.exports = function ({ addComponents, theme, variants, e }) {
+module.exports = function ({ addComponents, config, theme, variants, e }) {
+  if (config('captain.plugins.wrapper') === false) return;
+
   const screens = theme('wrapper.screens', theme('screens'));
   const minWidths = extractMinWidths(screens);
   const paddingsMap = mapMinWidthsToValues(minWidths, screens, theme('wrapper.padding'));

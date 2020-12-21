@@ -10,7 +10,9 @@
  * onto multiple lines.
  */
 
-module.exports = function ({ addComponents, theme, variants, e }) {
+module.exports = function ({ addComponents, config, theme, variants, e }) {
+  if (config('captain.plugins.cluster') === false) return;
+
   const gap = theme('cluster.gap');
 
   const cluster = [

@@ -9,7 +9,9 @@
  * device orientation.
  */
 
-module.exports = function ({ addComponents, theme, variants, e }) {
+module.exports = function ({ addComponents, config, theme, variants, e }) {
+  if (config('captain.plugins.config') === false) return;
+
   const ratios = theme('frame.ratios');
 
   const frame = [

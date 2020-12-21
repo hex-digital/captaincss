@@ -4,7 +4,9 @@
  * -=-=-=-=-=-=-=-=-
  */
 
-module.exports = function ({ addComponents, theme, variants, e }) {
+module.exports = function ({ addComponents, config, variants }) {
+  if (config('captain.plugins.skipLink') === false) return;
+
   const skipLink = [
     {
       '.skip-link': {

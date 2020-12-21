@@ -26,7 +26,9 @@
  * amongst other utilities, and provides a common name with which developers can reference it.
  */
 
-module.exports = function ({ addComponents, theme, variants, e }) {
+module.exports = function ({ addComponents, config, theme, variants, e }) {
+  if (config('captain.plugins.stack') === false) return;
+
   const gap = theme('stack.gap');
 
   const stack = [

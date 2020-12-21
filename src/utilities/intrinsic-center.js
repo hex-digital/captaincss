@@ -4,7 +4,9 @@
  * elements that are not 100% width will appear in the middle of the container, which can be preferable.
  */
 
-module.exports = function ({ addUtilities }) {
+module.exports = function ({ addUtilities, config }) {
+  if (config('captain.plugins.intrinsicCenter') === false) return;
+
   addUtilities([
     {
       '.intrinsic-center': {
