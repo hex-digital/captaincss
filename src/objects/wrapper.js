@@ -64,6 +64,17 @@ module.exports = function ({ addComponents, theme, variants, e }) {
         marginRight: 'auto',
         width: '100%',
         ...generatePaddingFor(0),
+
+        '&__wide': {
+          marginLeft: 'calc(-75vw / 2 + 100% / 2)',
+          marginRight: 'calc(-75vw / 2 + 100% / 2)',
+          maxWidth: 'none',
+        },
+        '&__bleed': {
+          marginLeft: 'calc(-100vw / 2 + 100% / 2)',
+          marginRight: 'calc(-100vw / 2 + 100% / 2)',
+          maxWidth: '100vw',
+        },
       },
     },
     ...mediaPaddingRules,
