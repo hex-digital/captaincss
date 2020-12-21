@@ -1,8 +1,10 @@
 <h1 align="center"><img width="279" src="https://user-images.githubusercontent.com/2754728/97885162-ec8fbf00-1d1e-11eb-9f7d-9cef86938da0.png"><br />Welcome to CaptainCSS 👋</h1>
 
-**An extensible, scalable CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and large or long-lasting projects**
+**An extensible, scalable set of CSS objects and utilities that harness Tailwind and ITCSS to provide structure to teams and large or long-lasting projects**
 
-A happy medium: it does not provide you with UI or design out of the box, but instead provides a solid architectural baseline upon which anything can be built.
+Captain does not provide you with UI or design out of the box, but instead provides solid architectural layout objects and utilities, upon which anything can be built.
+
+Talk the same language as other developers, and share a set of common objects across all of your website and app builds. All fully configurable using the native Tailwind config.
 
 <p>
   <a href="https://www.npmjs.com/package/@captaincss/captaincss"><img alt="Version" src="https://img.shields.io/npm/v/@captaincss/captaincss?style=for-the-badge" /></a>
