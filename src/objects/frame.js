@@ -19,6 +19,8 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
   const frame = [
     {
       '.frame': {
+        '--frame-antecedent': 9,
+        '--frame-consequent': 16,
         paddingBottom: 'calc(var(--frame-consequent) / var(--frame-antecedent) * 100%)',
         position: 'relative',
 
