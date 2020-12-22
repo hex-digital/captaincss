@@ -9,7 +9,10 @@ module.exports = {
       styles: {},
     }),
     cluster: (theme) => ({
-      gap: theme('spacing'),
+      gap: {
+        DEFAULT: '1rem',
+        ...theme('space'),
+      },
     }),
     frame: {
       ratios: {
