@@ -19,9 +19,19 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
   if (pluginDisabled('wrapper', config)) return;
 
   const screens = theme('wrapper.screens', theme('screens'));
+
+  let padding = theme('wrapper.padding');
+  if (_.isString(padding)) {
+    padding = { DEFAULT: padding };
+  }
+
+  let maxWidth = theme('wrapper.maxWidth');
+  if (_.isString(maxWidth)) {
+    maxWidth = { DEFAULT: maxWidth };
+  }
+
   const minWidths = extractMinWidths(screens);
-  const paddingsMap = mapMinWidthsToValues(minWidths, screens, theme('wrapper.padding'));
-  const maxWidth = theme('wrapper.maxWidth');
+  const paddingsMap = mapMinWidthsToValues(minWidths, screens, padding);
 
   const generatePaddingFor = (minWidth) => {
     const paddingConfig = _.find(

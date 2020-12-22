@@ -26,12 +26,16 @@
  * amongst other utilities, and provides a common name with which developers can reference it.
  */
 
+const _ = require('lodash');
 const { pluginDisabled } = require('../utilities');
 
 module.exports = function ({ addComponents, config, theme, variants, e }) {
   if (pluginDisabled('stack', config)) return;
 
-  const gap = theme('stack.gap');
+  let gap = theme('stack.gap');
+  if (_.isString(gap)) {
+    gap = { DEFAULT: gap };
+  }
 
   const stack = [
     {

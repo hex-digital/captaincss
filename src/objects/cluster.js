@@ -10,12 +10,16 @@
  * onto multiple lines.
  */
 
+const _ = require('lodash');
 const { pluginDisabled } = require('../utilities');
 
 module.exports = function ({ addComponents, config, theme, variants, e }) {
   if (pluginDisabled('cluster', config)) return;
 
-  const gap = theme('cluster.gap');
+  let gap = theme('cluster.gap');
+  if (_.isString(gap)) {
+    gap = { DEFAULT: gap };
+  }
 
   const cluster = [
     {
