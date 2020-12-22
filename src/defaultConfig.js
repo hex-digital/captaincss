@@ -26,15 +26,15 @@ module.exports = {
     }),
     wrapper: {
       padding: {
-        DEFAULT: '20px',
-        md: '40px',
-        lg: '56px',
-        xl: '80px',
+        DEFAULT: '1rem',
+        md: '2rem',
+        lg: '3.5rem',
+        xl: '5rem',
       },
       maxWidth: {
-        DEFAULT: '1080px',
-        sm: '800px',
-        lg: '1440px',
+        DEFAULT: '80rem',
+        sm: '60rem',
+        lg: '90rem',
       },
     },
   },
