@@ -31,20 +31,31 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'flex-start',
+          margin: `calc((var(--cluster-space) / 2) * -1)`,
+        },
+
+        '> * > *': {
+          margin: `calc(var(--cluster-space) / 2)`,
         },
       },
     },
   ];
 
   for (const [modifier, spacingValue] of Object.entries(gap)) {
-    cluster.push({
-      [`.${e(`cluster--${modifier}`)} > *`]: {
-        margin: `calc((${spacingValue} / 2) * -1)`,
+    const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
+
+    const style = {
+      [`.${e(`cluster${mod}`)}`]: {
+        '--cluster-space': spacingValue,
       },
-      [`.${e(`cluster--${modifier}`)} > * > *`]: {
-        margin: `calc(${spacingValue} / 2)`,
-      },
-    });
+    };
+
+    if (modifier === 'DEFAULT') {
+      // Default should come before the other modifiers, so that it can be overridden
+      cluster.unshift(style);
+    } else {
+      cluster.push(style);
+    }
   }
 
   return addComponents(cluster, variants('cluster'));

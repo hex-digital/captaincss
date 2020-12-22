@@ -21,7 +21,7 @@
  * elements and is usually not desirable. This margin bottom on all child elements is stripped by default. This
  * behaviour can be turned off by setting the strip prop to false.
  *
- * The stack could be built with the following Tailwind classes: flex flex-col space-x-{value}. However, it's such a
+ * The stack could be built with the following Tailwind classes: flex flex-col space-y-{value}. However, it's such a
  * common layout object that it deserves its own name. This means it is more obvious and recognisable in the codebase
  * amongst other utilities, and provides a common name with which developers can reference it.
  */
@@ -40,19 +40,24 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
   const stack = [
     {
       '.stack': {
-        '--stack-space': 0,
-        '--stack-reverse': 0,
+        '--stack-reverse': '0',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
 
         '&--reverse': {
-          '--stack-reverse': 1,
+          '--stack-reverse': '1',
+          flexDirection: 'column-reverse',
         },
 
         '> *': {
+          marginTop: '0',
+          marginBottom: '0',
+        },
+
+        '> * + *': {
           marginTop: 'calc(var(--stack-space) * calc(1 - var(--stack-reverse)))',
-          marginBottom: 'calc(var(--stack-space) * var(--tw-space-y-reverse))',
+          marginBottom: 'calc(var(--stack-space) * var(--stack-reverse))',
         },
       },
     },
@@ -61,11 +66,18 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
   for (const [modifier, spacingValue] of Object.entries(gap)) {
     const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
 
-    stack.push({
-      [`.${e(`stack${mod}`)} > * + *`]: {
+    const style = {
+      [`.${e(`stack${mod}`)}`]: {
         '--stack-space': spacingValue,
       },
-    });
+    };
+
+    if (modifier === 'DEFAULT') {
+      // Default should come before the other modifiers, so that it can be overridden
+      stack.unshift(style);
+    } else {
+      stack.push(style);
+    }
   }
 
   return addComponents(stack, variants('stack'));
