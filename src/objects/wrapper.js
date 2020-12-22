@@ -95,11 +95,17 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
   for (const [modifier, widthValue] of Object.entries(maxWidth)) {
     const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
 
-    wrapper.push({
+    const style = {
       [`.${e(`wrapper${mod}`)}`]: {
         maxWidth: widthValue,
       },
-    });
+    };
+    if (modifier === 'DEFAULT') {
+      // Default should come before the other modifiers, so that it can be overridden
+      wrapper.unshift(style);
+    } else {
+      wrapper.push(style);
+    }
   }
 
   return addComponents(wrapper, variants('wrapper'));
