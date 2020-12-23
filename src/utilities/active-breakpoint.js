@@ -1,6 +1,6 @@
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme }) {
+module.exports = function ({ addComponents, config, theme, e }) {
   if (process.env.NODE_ENV === 'production') return;
   if (pluginDisabled('activeBreakpoint', config)) return;
 
@@ -10,12 +10,16 @@ module.exports = function ({ addComponents, config, theme }) {
   const ignoredScreens = theme('activeBreakpoint.ignoreScreens');
   const userStyles = theme('activeBreakpoint.styles');
 
+  const selector = theme('activeBreakpoint.selector');
+  const pseudo = theme('activeBreakpoint.pseudo');
+  const sanitisedSelector = `${e(selector)}::${e(pseudo)}`;
+
   const position = theme('activeBreakpoint.position');
   const positionY = position[0];
   const positionX = position[1];
 
   const components = {
-    'body::before': Object.assign(
+    [sanitisedSelector]: Object.assign(
       {
         [positionX]: '0',
         [positionY]: '0',
@@ -38,7 +42,7 @@ module.exports = function ({ addComponents, config, theme }) {
     .filter(([screen]) => !ignoredScreens.includes(screen))
     .forEach(([screen, size]) => {
       components[`@screen ${screen}`] = {
-        'body::before': {
+        [sanitisedSelector]: {
           content: `'${prefix}${screen} ≥ ${size}${suffix}'`,
         },
       };

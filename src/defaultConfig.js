@@ -7,6 +7,8 @@ module.exports = {
       suffix: '',
       ignoreScreens: ['dark'],
       styles: {},
+      selector: 'body',
+      pseudo: 'before',
     }),
     cluster: (theme) => ({
       gap: {
