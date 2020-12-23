@@ -4,7 +4,6 @@
 /lib
 /example
 
-tailwind.config.js
 package-lock.json
 yarn-error.log
 

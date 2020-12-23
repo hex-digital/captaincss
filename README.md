@@ -1,8 +1,10 @@
 <h1 align="center"><img width="279" src="https://user-images.githubusercontent.com/2754728/97885162-ec8fbf00-1d1e-11eb-9f7d-9cef86938da0.png"><br />Welcome to CaptainCSS 👋</h1>
 
-**An extensible, scalable CSS framework that harnesses Tailwind and ITCSS to provide structure to teams and large or long-lasting projects**
+**An extensible, scalable set of CSS objects and utilities that harness Tailwind and ITCSS to provide structure to teams and large or long-lasting projects**
 
-A happy medium: it does not provide you with UI or design out of the box, but instead provides a solid architectural baseline upon which anything can be built.
+Captain does not provide you with UI or design out of the box, but instead provides solid architectural layout objects and utilities, upon which anything can be built.
+
+Talk the same language as other developers, and share a set of common objects across all of your website and app builds. All fully configurable using the native Tailwind config.
 
 <p>
   <a href="https://www.npmjs.com/package/@captaincss/captaincss"><img alt="Version" src="https://img.shields.io/npm/v/@captaincss/captaincss?style=for-the-badge" /></a>
@@ -26,32 +28,39 @@ yarn add -D @captaincss/captaincss # or npm install -D @captaincss/captaincss
 
 ## Usage
 
-Create a main.scss file.
+1. Install and setup Tailwind in your project: https://tailwindcss.com/docs/installation
 
-```sh
-cp ./node_modules/@captaincss/captaincss/scss/main.example.scss ./assets/scss/.
-```
-
-Generate a SCSS version of your tailwind config. We recommend adding to your build process.
-We provide a Webpack plugin to automate this step.
+2. Add CaptainCSS as a plugin in your tailwind.config.js:
 
 ```js
-// webpack.config.js
-const path = require('path');
-const Captaincss = require('@captaincss/captaincss');
-
+// tailwind.config.js
 module.exports = {
+  theme: {},
   plugins: [
-    // Takes Tailwind's config and outputs it to SCSS to be used
-    new Captaincss({
-      config: path.resolve(__dirname, 'tailwind.config.js'),
-      destination: path.resolve(__dirname, 'src/_tailwind.config'),
-    }),
+    require('@captaincss/captaincss'),
   ],
 }
 ```
 
-Use main.scss as an entry point when bundling, and you're good to go!
+3. Configure Captain's theme settings and variants in your tailwind config, exactly like Tailwind. Check `defaultConfig.js` for Captain's default configuration.
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      frame: {
+        ratio: {
+          '4:3': '4:3',
+        }
+      }
+    }
+  },
+  plugins: [
+    require('@captaincss/captaincss'),
+  ],
+}
+```
 
 ## Author
 

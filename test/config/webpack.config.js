@@ -4,17 +4,16 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Captaincss = require('../../src/captaincss');
 
 module.exports = {
   // Where webpack looks to start building the bundle
-  entry: [paths.src + '/scss/main.scss'],
+  entry: [paths.src + '/css/main.css'],
 
   // Where webpack outputs the assets and bundles
   output: {
     path: paths.build,
     filename: '[name].bundle.js',
-    publicPath: '/',
+    publicPath: '',
   },
 
   // Control how source maps are generated
@@ -34,12 +33,6 @@ module.exports = {
   plugins: [
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
-
-    // Takes Tailwind's config and outputs it to SCSS to be used
-    new Captaincss({
-      config: paths.root + '/tailwind.config.js',
-      destination: 'src/scss/_tailwind.config',
-    }),
 
     // Only update what has changed on hot reload
     new webpack.HotModuleReplacementPlugin(),
@@ -65,7 +58,7 @@ module.exports = {
     rules: [
       // Styles: Inject CSS into the head with source maps
       {
-        test: /\.(scss|css)$/,
+        test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -82,7 +75,6 @@ module.exports = {
               },
             },
           },
-          { loader: 'sass-loader', options: { sourceMap: true } },
         ],
       },
 
