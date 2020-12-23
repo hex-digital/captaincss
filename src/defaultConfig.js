@@ -27,6 +27,9 @@ module.exports = {
         ...theme('space'),
       },
     }),
+    skipLink: {
+      styles: {},
+    },
     wrapper: {
       padding: {
         DEFAULT: '1rem',
