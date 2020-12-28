@@ -10,6 +10,7 @@ const addSkipLinkComponent = require('./objects/skip-link');
 
 const addActiveBreakpointUtility = require('./utilities/active-breakpoint');
 const addIntrinsicCenterUtility = require('./utilities/intrinsic-center');
+const addDebugUtility = require('./utilities/debug');
 
 module.exports = plugin(function (params) {
   addClusterComponent(params);
@@ -21,4 +22,5 @@ module.exports = plugin(function (params) {
 
   addActiveBreakpointUtility(params);
   addIntrinsicCenterUtility(params);
+  addDebugUtility(params);
 }, defaultConfig);

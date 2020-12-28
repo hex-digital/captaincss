@@ -16,6 +16,9 @@ module.exports = {
         ...theme('space'),
       },
     }),
+    debug: {
+      accessibility: false,
+    },
     frame: {
       ratios: {
         '1:1': '1:1',

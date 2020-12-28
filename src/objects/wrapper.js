@@ -78,9 +78,11 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
         ...generatePaddingFor(0),
 
         '&__wide': {
-          marginLeft: 'calc(-75vw / 2 + 100% / 2)',
-          marginRight: 'calc(-75vw / 2 + 100% / 2)',
-          maxWidth: 'none',
+          maxWidth: '100vw',
+          '@screen xl': {
+            marginLeft: 'calc(-90vw / 2 + 100% / 2)',
+            marginRight: 'calc(-90vw / 2 + 100% / 2)',
+          },
         },
         '&__bleed': {
           marginLeft: 'calc(-100vw / 2 + 100% / 2)',

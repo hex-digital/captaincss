@@ -1,6 +1,6 @@
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, e }) {
+module.exports = function ({ addUtilities, config, theme, e }) {
   if (process.env.NODE_ENV === 'production') return;
   if (pluginDisabled('activeBreakpoint', config)) return;
 
@@ -48,5 +48,5 @@ module.exports = function ({ addComponents, config, theme, e }) {
       };
     });
 
-  addComponents(components);
+  addUtilities(components);
 };
