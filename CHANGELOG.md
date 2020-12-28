@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.0](https://github.com/hex-digital/captaincss/compare/v2.0.0...v2.1.0) (2020-12-28)
+
+
+### Features
+
+* add a11y.css debug utility ([fd39ab8](https://github.com/hex-digital/captaincss/commit/fd39ab8ef2a20d7b36802a696bf6f663ffb9f929))
+* turn debug.accessibility off by default ([bb5f974](https://github.com/hex-digital/captaincss/commit/bb5f974c065d08e8da78432f6507fb3c95a4f00a))
+
+
+### Bug Fixes
+
+* fix for active breakpoint in wrong TW layer ([a9d5394](https://github.com/hex-digital/captaincss/commit/a9d53946f246f6bf3e1381db402ef967bdfc6c2f))
+* fix wrapper__wide element ([c4380b3](https://github.com/hex-digital/captaincss/commit/c4380b3e12cd25a1eca1eacb7451ec895ab072cb))
+
 ## [2.0.0](https://github.com/hex-digital/captaincss/compare/v1.4.0...v2.0.0) (2020-12-23)
 
 
