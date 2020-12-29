@@ -21,25 +21,29 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
     gap = { DEFAULT: gap };
   }
 
-  const cluster = [
-    {
-      [prefixObject('.cluster')]: {
-        overflow: 'hidden',
-
-        '> *': {
-          alignItems: 'center',
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'flex-start',
-          margin: `calc((var(--cluster-space) / 2) * -1)`,
-        },
-
-        '> * > *': {
-          margin: `calc(var(--cluster-space) / 2)`,
-        },
-      },
+  const cluster = {
+    [prefixObject('.cluster')]: {
+      overflow: 'hidden',
     },
-  ];
+    [prefixObject('.cluster > *')]: {
+      alignItems: 'center',
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'flex-start',
+      margin: `calc((var(--cluster-space) / 2) * -1)`,
+    },
+
+    [prefixObject('.cluster > * > *')]: {
+      margin: `calc(var(--cluster-space) / 2)`,
+    },
+  };
+
+  addComponents(cluster, {
+    respectPrefix: false,
+    variants: variants('cluster'),
+  });
+
+  const clusterModifiers = [];
 
   for (const [modifier, spacingValue] of Object.entries(gap)) {
     const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
@@ -52,13 +56,13 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
 
     if (modifier === 'DEFAULT') {
       // Default should come before the other modifiers, so that it can be overridden
-      cluster.unshift(style);
+      clusterModifiers.unshift(style);
     } else {
-      cluster.push(style);
+      clusterModifiers.push(style);
     }
   }
 
-  return addComponents(cluster, {
+  addComponents(clusterModifiers, {
     respectPrefix: false,
     variants: variants('cluster'),
   });
