@@ -1,7 +1,7 @@
 const plugin = require('tailwindcss/plugin');
 const defaultConfig = require('../stubs/defaultConfig.stub');
 
-const createPrefixer = require('./util/prefixSelector');
+const createPrefixer = require('./util/createPrefixer');
 
 const addClusterComponent = require('./objects/cluster');
 const addFrameComponent = require('./objects/frame');
