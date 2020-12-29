@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.3](https://github.com/hex-digital/captaincss/compare/v2.2.2...v2.2.3) (2020-12-29)
+
+
+### Bug Fixes
+
+* fix indeterminate order of nested classes on stack and object ([110cc27](https://github.com/hex-digital/captaincss/commit/110cc27e6f62730d754bd1a772bb2c2caa812014))
+
 ### [2.2.2](https://github.com/hex-digital/captaincss/compare/v2.2.1...v2.2.2) (2020-12-29)
 
 
