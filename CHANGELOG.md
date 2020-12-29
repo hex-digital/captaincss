@@ -1,5 +1,23 @@
 # Changelog
 
+### [2.2.1](https://github.com/hex-digital/captaincss/compare/v2.2.0...v2.2.1) (2020-12-29)
+
+
+### Bug Fixes
+
+* fix missing files in distributable ([d6302dd](https://github.com/hex-digital/captaincss/commit/d6302ddfdb08f344c89bd4a3206d34d070a0bec0))
+
+## [2.2.0](https://github.com/hex-digital/captaincss/compare/v2.1.0...v2.2.0) (2020-12-29)
+
+
+### Features
+
+* add blend mode utilities ([618cf64](https://github.com/hex-digital/captaincss/commit/618cf64240de8f0f992cc635d47d646efc14325e))
+* add custom object and component prefixing ([0b2870c](https://github.com/hex-digital/captaincss/commit/0b2870c8a462367c8f3372bbecb68c467c6eb480))
+* add helpers for px, rem, em sizes ([0bf6874](https://github.com/hex-digital/captaincss/commit/0bf6874fa5b54b1063d6c4bdaccd6990dc9a0e93))
+* add individual variations options for blend mode ([2bda361](https://github.com/hex-digital/captaincss/commit/2bda3619141d68698aaeee602f9caacb945e27b6))
+* better override for pxToRem helpers ([baa774b](https://github.com/hex-digital/captaincss/commit/baa774b3519ce1d4c29f27b911a97d4a4adfd76c))
+
 ## [2.1.0](https://github.com/hex-digital/captaincss/compare/v2.0.0...v2.1.0) (2020-12-28)
 
 
