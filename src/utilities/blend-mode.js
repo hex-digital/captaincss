@@ -3,7 +3,7 @@ const { pluginDisabled } = require('../utilities');
 module.exports = function ({ addUtilities, config, variants }) {
   if (pluginDisabled('blendMode', config)) return;
 
-  const utilities = {
+  const blendUtilities = {
     '.blend-color': { mixBlendMode: 'color' },
     '.blend-color-burn': { mixBlendMode: 'color-burn' },
     '.blend-color-dodge': { mixBlendMode: 'color-dodge' },
@@ -20,7 +20,9 @@ module.exports = function ({ addUtilities, config, variants }) {
     '.blend-saturation': { mixBlendMode: 'saturation' },
     '.blend-screen': { mixBlendMode: 'screen' },
     '.blend-soft-light': { mixBlendMode: 'soft-light' },
+  };
 
+  const backgroundBlendUtilities = {
     '.bg-blend-color': { backgroundBlendMode: 'color' },
     '.bg-blend-color-burn': { backgroundBlendMode: 'color-burn' },
     '.bg-blend-color-dodge': { backgroundBlendMode: 'color-dodge' },
@@ -37,10 +39,14 @@ module.exports = function ({ addUtilities, config, variants }) {
     '.bg-blend-saturation': { backgroundBlendMode: 'saturation' },
     '.bg-blend-screen': { backgroundBlendMode: 'screen' },
     '.bg-blend-soft-light': { backgroundBlendMode: 'soft-light' },
+  };
 
+  const isolationUtilities = {
     '.isolation-isolate': { isolation: 'isolate' },
     '.isolation-auto': { isolation: 'auto' },
   };
 
-  addUtilities(utilities, variants('blendMode'));
+  addUtilities(blendUtilities, variants('mixBlendMode'));
+  addUtilities(backgroundBlendUtilities, variants('backgroundBlendMode'));
+  addUtilities(isolationUtilities, variants('isolation'));
 };

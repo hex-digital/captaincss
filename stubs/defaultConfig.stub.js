@@ -56,9 +56,11 @@ module.exports = {
     },
   },
   variants: {
-    blendMode: ['responsive', 'hover'],
+    backgroundBlendMode: ['responsive', 'hover'],
     cluster: ['responsive'],
     frame: ['responsive'],
+    isolation: ['responsive'],
+    mixBlendMode: ['responsive', 'hover'],
     stack: ['responsive'],
   },
 };
