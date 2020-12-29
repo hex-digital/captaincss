@@ -56,6 +56,7 @@ module.exports = {
     },
   },
   variants: {
+    blendMode: ['responsive', 'hover'],
     cluster: ['responsive'],
     frame: ['responsive'],
     stack: ['responsive'],

@@ -12,6 +12,7 @@ const addSkipLinkComponent = require('./components/skip-link');
 
 const addActiveBreakpointUtility = require('./utilities/active-breakpoint');
 const addIntrinsicCenterUtility = require('./utilities/intrinsic-center');
+const addBlendModeUtility = require('./utilities/blend-mode');
 const addDebugUtility = require('./utilities/debug');
 
 module.exports = plugin(function (params) {
@@ -33,5 +34,6 @@ module.exports = plugin(function (params) {
 
   addActiveBreakpointUtility(params);
   addIntrinsicCenterUtility(params);
+  addBlendModeUtility(params);
   addDebugUtility(params);
 }, defaultConfig);
