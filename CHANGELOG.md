@@ -1,5 +1,61 @@
 # Changelog
 
+## [2.1.0](https://github.com/hex-digital/captaincss/compare/v2.0.0...v2.1.0) (2020-12-28)
+
+
+### Features
+
+* add a11y.css debug utility ([fd39ab8](https://github.com/hex-digital/captaincss/commit/fd39ab8ef2a20d7b36802a696bf6f663ffb9f929))
+* turn debug.accessibility off by default ([bb5f974](https://github.com/hex-digital/captaincss/commit/bb5f974c065d08e8da78432f6507fb3c95a4f00a))
+
+
+### Bug Fixes
+
+* fix for active breakpoint in wrong TW layer ([a9d5394](https://github.com/hex-digital/captaincss/commit/a9d53946f246f6bf3e1381db402ef967bdfc6c2f))
+* fix wrapper__wide element ([c4380b3](https://github.com/hex-digital/captaincss/commit/c4380b3e12cd25a1eca1eacb7451ec895ab072cb))
+
+## [2.0.0](https://github.com/hex-digital/captaincss/compare/v1.4.0...v2.0.0) (2020-12-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove now un-used SCSS dependencies from test directory and webpack
+
+### Features
+
+* add active breakpoint utility ([fb49ed7](https://github.com/hex-digital/captaincss/commit/fb49ed75dc2a8c8ba35a22e8444e45f2ab04e62a))
+* add cluster object ([1171fd7](https://github.com/hex-digital/captaincss/commit/1171fd7626b01427d4024e0a1465c4f3d54ed61c))
+* add Frame object ([4e6e107](https://github.com/hex-digital/captaincss/commit/4e6e1079f9411f9e6fd0f7d39e217d060e2c3b35))
+* add intrinsic center utility ([e02a581](https://github.com/hex-digital/captaincss/commit/e02a5814072e5ead1466de0eec84f6614aac17e6))
+* add responsive variants to stack by default ([1756a53](https://github.com/hex-digital/captaincss/commit/1756a53057075307f6741c2557af889a92ba0613))
+* add Skip Link object ([2350733](https://github.com/hex-digital/captaincss/commit/2350733525511e81fd8089793a0cc2bcde290389))
+* add Stack object ([8824791](https://github.com/hex-digital/captaincss/commit/88247918091095d38d389bb6ab51744dcf4b36f5))
+* add support for shorthand string in some config.theme values ([011d863](https://github.com/hex-digital/captaincss/commit/011d863651a7d5f7d1ed3b62cc6c786bb539ad52))
+* add wide and bleed elements to wrappers to allow strecthing them out ([16744f1](https://github.com/hex-digital/captaincss/commit/16744f1707e4db1e387706de9cfad1d25317e226))
+* add wrapper object ([17e7226](https://github.com/hex-digital/captaincss/commit/17e7226d1f13d44e018c88d4fb9a2b56ab49b441))
+* allow users to add styles to skip link via config ([6fd46e2](https://github.com/hex-digital/captaincss/commit/6fd46e23b7d35a0a066ce2eb8dd10f85825a2ab8))
+* allow users to specify selector and pseudo selector for active breakpoint ([11758a0](https://github.com/hex-digital/captaincss/commit/11758a03648ee16f86c156a5c07eb7692a150ef4))
+* allowing all Captains plugins to be fully disabled in config ([bc78a4f](https://github.com/hex-digital/captaincss/commit/bc78a4f5af390274025c1af669753b03ecfd1973))
+* default frame without modifier to 16:9 ([2219c86](https://github.com/hex-digital/captaincss/commit/2219c861358bbbffb1a7edc2e9bd5083ac37ac0b))
+* enable safelisting plugins via an array ([aee359a](https://github.com/hex-digital/captaincss/commit/aee359a9aa61494b8152462d8ee265a36dffb430))
+* improve cluster theme defaults ([ac2c361](https://github.com/hex-digital/captaincss/commit/ac2c3611644c82eba02ac7f96da7faa270f545e9))
+* update deps for tailwind v2 ([6ceebfb](https://github.com/hex-digital/captaincss/commit/6ceebfb03dba4dd56f495997c9b126bff07d2740))
+* update README and dist files for v2 ([e6e2ae1](https://github.com/hex-digital/captaincss/commit/e6e2ae1261a70b79a8409a178b9445ddc0ec3eef))
+* use rem for wrapper padding and maxWidth instead of px ([e29e249](https://github.com/hex-digital/captaincss/commit/e29e24963a21a8b63a13644bcde03bd989fe4ca5))
+
+
+### Bug Fixes
+
+* add missing tailwind config to test dir ([ed9bb48](https://github.com/hex-digital/captaincss/commit/ed9bb488dfaa31382e6aa72696e4791a09745be2))
+* fix minor bugs in cluster and stack ([e2ccc77](https://github.com/hex-digital/captaincss/commit/e2ccc77eae42c80ae4225d6bbc855655ac21627c))
+* fix wrapper default not being overridden ([638ce21](https://github.com/hex-digital/captaincss/commit/638ce217c33497dd59e5f85fa3441e9053eaf0aa))
+* stop active-breakpoint showing when NODE_ENV production ([f56b45c](https://github.com/hex-digital/captaincss/commit/f56b45c52ad44367e730763eb28694270365b5bb))
+
+
+### Code Refactoring
+
+* remove now un-used SCSS dependencies from test directory and webpack ([a109d28](https://github.com/hex-digital/captaincss/commit/a109d28b6d887c94e0c62c3746680affe924cd1e))
+
 ## [1.4.0](https://github.com/hex-digital/captaincss/compare/v1.3.2...v1.4.0) (2020-12-19)
 
 
