@@ -15,7 +15,7 @@
 const _ = require('lodash');
 const { extractMinWidths, mapMinWidthsToValues, pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e }) {
+module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
   if (pluginDisabled('wrapper', config)) return;
 
   const screens = theme('wrapper.screens', theme('screens'));
@@ -59,7 +59,7 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
 
       return {
         [`@media (min-width: ${minWidth})`]: {
-          '.wrapper': {
+          [prefixObject('.wrapper')]: {
             ...paddingStyles,
           },
         },
@@ -69,7 +69,7 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
 
   const wrapper = [
     {
-      '.wrapper': {
+      [prefixObject('.wrapper')]: {
         boxSizing: 'border-box',
         display: 'block',
         marginLeft: 'auto',
@@ -98,7 +98,7 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
     const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
 
     const style = {
-      [`.${e(`wrapper${mod}`)}`]: {
+      [prefixObject(`.${e(`wrapper${mod}`)}`)]: {
         maxWidth: widthValue,
       },
     };
@@ -110,5 +110,8 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
     }
   }
 
-  return addComponents(wrapper, variants('wrapper'));
+  return addComponents(wrapper, {
+    respectPrefix: false,
+    variants: variants('wrapper'),
+  });
 };

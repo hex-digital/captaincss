@@ -13,7 +13,7 @@
 const _ = require('lodash');
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e }) {
+module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
   if (pluginDisabled('cluster', config)) return;
 
   let gap = theme('cluster.gap');
@@ -23,7 +23,7 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
 
   const cluster = [
     {
-      '.cluster': {
+      [prefixObject('.cluster')]: {
         overflow: 'hidden',
 
         '> *': {
@@ -45,7 +45,7 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
     const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
 
     const style = {
-      [`.${e(`cluster${mod}`)}`]: {
+      [prefixObject(`.${e(`cluster${mod}`)}`)]: {
         '--cluster-space': spacingValue,
       },
     };
@@ -58,5 +58,8 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
     }
   }
 
-  return addComponents(cluster, variants('cluster'));
+  return addComponents(cluster, {
+    respectPrefix: false,
+    variants: variants('cluster'),
+  });
 };

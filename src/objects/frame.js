@@ -11,14 +11,14 @@
 
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e }) {
+module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
   if (pluginDisabled('frame', config)) return;
 
   const ratios = theme('frame.ratios');
 
   const frame = [
     {
-      '.frame': {
+      [prefixObject('.frame')]: {
         '--frame-antecedent': 9,
         '--frame-consequent': 16,
         paddingBottom: 'calc(var(--frame-consequent) / var(--frame-antecedent) * 100%)',
@@ -48,12 +48,15 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
   for (const [ratioName, ratioPair] of Object.entries(ratios)) {
     const [antecedent, consequent] = ratioPair.split(':');
     frame.push({
-      [`.${e(`frame--${ratioName}`)}`]: {
+      [prefixObject(`.${e(`frame--${ratioName}`)}`)]: {
         '--frame-antecedent': antecedent,
         '--frame-consequent': consequent,
       },
     });
   }
 
-  return addComponents(frame, variants('frame'));
+  return addComponents(frame, {
+    respectPrefix: false,
+    variants: variants('frame'),
+  });
 };

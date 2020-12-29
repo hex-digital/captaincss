@@ -6,14 +6,14 @@
 
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants }) {
+module.exports = function ({ addComponents, config, theme, variants, prefixComponent }) {
   if (pluginDisabled('skipLink', config)) return;
 
   const userStyles = theme('skipLink.styles');
 
   const skipLink = [
     {
-      '.skip-link': Object.assign(
+      [prefixComponent('.skip-link')]: Object.assign(
         {
           clip: 'rect(1px, 1px, 1px, 1px)',
           display: 'block',
@@ -30,7 +30,7 @@ module.exports = function ({ addComponents, config, theme, variants }) {
         userStyles
       ),
 
-      '.skip-link:focus': {
+      [prefixComponent('.skip-link:focus')]: {
         clip: 'auto',
         height: 'auto',
         overflow: 'visible',
@@ -39,5 +39,8 @@ module.exports = function ({ addComponents, config, theme, variants }) {
     },
   ];
 
-  return addComponents(skipLink, variants('skipLink'));
+  return addComponents(skipLink, {
+    respectPrefix: false,
+    variants: variants('skipLink'),
+  });
 };
