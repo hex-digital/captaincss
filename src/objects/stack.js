@@ -29,7 +29,7 @@
 const _ = require('lodash');
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e }) {
+module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
   if (pluginDisabled('stack', config)) return;
 
   let gap = theme('stack.gap');
@@ -39,7 +39,7 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
 
   const stack = [
     {
-      '.stack': {
+      [prefixObject('.stack')]: {
         '--stack-reverse': '0',
         display: 'flex',
         flexDirection: 'column',
@@ -67,7 +67,7 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
     const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
 
     const style = {
-      [`.${e(`stack${mod}`)}`]: {
+      [prefixObject(`.${e(`stack${mod}`)}`)]: {
         '--stack-space': spacingValue,
       },
     };
@@ -80,5 +80,8 @@ module.exports = function ({ addComponents, config, theme, variants, e }) {
     }
   }
 
-  return addComponents(stack, variants('stack'));
+  return addComponents(stack, {
+    respectPrefix: false,
+    variants: variants('stack'),
+  });
 };
