@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.1](https://github.com/hex-digital/captaincss/compare/v2.2.0...v2.2.1) (2020-12-29)
+
+
+### Bug Fixes
+
+* fix missing files in distributable ([d6302dd](https://github.com/hex-digital/captaincss/commit/d6302ddfdb08f344c89bd4a3206d34d070a0bec0))
+
 ## [2.2.0](https://github.com/hex-digital/captaincss/compare/v2.1.0...v2.2.0) (2020-12-29)
 
 
