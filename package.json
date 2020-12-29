@@ -13,7 +13,10 @@
   "files": [
     "assets",
     "src",
+    "stubs",
     "CHANGELOG.md",
+    "defaultConfig.js",
+    "helpers.js",
     "package.json",
     "yarn.lock"
   ],
