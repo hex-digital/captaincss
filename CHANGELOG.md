@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.2](https://github.com/hex-digital/captaincss/compare/v2.2.1...v2.2.2) (2020-12-29)
+
+
+### Bug Fixes
+
+* fix wrapper break classes ([d44b719](https://github.com/hex-digital/captaincss/commit/d44b719c4d766571ca5d1c3fcdcf6247e853b3bb))
+
 ### [2.2.1](https://github.com/hex-digital/captaincss/compare/v2.2.0...v2.2.1) (2020-12-29)
 
 
