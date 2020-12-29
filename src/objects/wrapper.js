@@ -76,19 +76,6 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
         marginRight: 'auto',
         width: '100%',
         ...generatePaddingFor(0),
-
-        '&__wide': {
-          maxWidth: '100vw',
-          '@screen xl': {
-            marginLeft: 'calc(-90vw / 2 + 100% / 2)',
-            marginRight: 'calc(-90vw / 2 + 100% / 2)',
-          },
-        },
-        '&__bleed': {
-          marginLeft: 'calc(-100vw / 2 + 100% / 2)',
-          marginRight: 'calc(-100vw / 2 + 100% / 2)',
-          maxWidth: '100vw',
-        },
       },
     },
     ...mediaPaddingRules,
@@ -110,8 +97,28 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
     }
   }
 
-  return addComponents(wrapper, {
+  addComponents(wrapper, {
     respectPrefix: false,
     variants: variants('wrapper'),
+  });
+
+  const wrapperBreak = {
+    [prefixObject('.wrapper')]: {
+      '&__wide': {
+        maxWidth: '100vw',
+        marginLeft: 'calc(-90vw / 2 + 100% / 2)',
+        marginRight: 'calc(-90vw / 2 + 100% / 2)',
+      },
+      '&__bleed': {
+        marginLeft: 'calc(-100vw / 2 + 100% / 2)',
+        marginRight: 'calc(-100vw / 2 + 100% / 2)',
+        maxWidth: '100vw',
+      },
+    },
+  };
+
+  addComponents(wrapperBreak, {
+    respectPrefix: false,
+    variants: variants('wrapperBreak'),
   });
 };

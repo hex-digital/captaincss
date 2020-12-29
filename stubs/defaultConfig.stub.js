@@ -62,5 +62,6 @@ module.exports = {
     isolation: ['responsive'],
     mixBlendMode: ['responsive', 'hover'],
     stack: ['responsive'],
+    wrapperBreak: ['responsive'],
   },
 };
