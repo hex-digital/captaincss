@@ -37,31 +37,33 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
     gap = { DEFAULT: gap };
   }
 
-  const stack = [
-    {
-      [prefixObject('.stack')]: {
-        '--stack-reverse': '0',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-
-        '&--reverse': {
-          '--stack-reverse': '1',
-          flexDirection: 'column-reverse',
-        },
-
-        '> *': {
-          marginTop: '0',
-          marginBottom: '0',
-        },
-
-        '> * + *': {
-          marginTop: 'calc(var(--stack-space) * calc(1 - var(--stack-reverse)))',
-          marginBottom: 'calc(var(--stack-space) * var(--stack-reverse))',
-        },
-      },
+  const stack = {
+    [prefixObject('.stack')]: {
+      '--stack-reverse': '0',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
     },
-  ];
+    [prefixObject('.stack--reverse')]: {
+      '--stack-reverse': '1',
+      flexDirection: 'column-reverse',
+    },
+    [prefixObject('.stack > *')]: {
+      marginTop: '0',
+      marginBottom: '0',
+    },
+    [prefixObject('.stack > * + *')]: {
+      marginTop: 'calc(var(--stack-space) * calc(1 - var(--stack-reverse)))',
+      marginBottom: 'calc(var(--stack-space) * var(--stack-reverse))',
+    },
+  };
+
+  addComponents(stack, {
+    respectPrefix: false,
+    variants: variants('stack'),
+  });
+
+  const stackModifiers = [];
 
   for (const [modifier, spacingValue] of Object.entries(gap)) {
     const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
@@ -74,13 +76,13 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
 
     if (modifier === 'DEFAULT') {
       // Default should come before the other modifiers, so that it can be overridden
-      stack.unshift(style);
+      stackModifiers.unshift(style);
     } else {
-      stack.push(style);
+      stackModifiers.push(style);
     }
   }
 
-  return addComponents(stack, {
+  addComponents(stackModifiers, {
     respectPrefix: false,
     variants: variants('stack'),
   });
