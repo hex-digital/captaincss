@@ -1,11 +1,7 @@
-let baseFontSize = 16;
-
-const setBaseFontSize = (px) => (baseFontSize = px);
-
-const pxToRem = (px) => `${px / baseFontSize}rem`;
-const pxToRemPair = (px) => ({ [px]: pxToRem(px) });
-const pxToEm = (px) => `${px / baseFontSize}em`;
-const pxToEmPair = (px) => ({ [px]: pxToEm(px) });
+const pxToRem = (px, base = 16) => `${px / base}rem`;
+const pxToRemPair = (px, base = 16) => ({ [px]: pxToRem(px, base) });
+const pxToEm = (px, base = 16) => `${px / base}em`;
+const pxToEmPair = (px, base = 16) => ({ [px]: pxToEm(px, base) });
 const pxPair = (px) => ({ [px]: `${px}px` });
 
-module.exports = { setBaseFontSize, pxToRem, pxToRemPair, pxToEm, pxToEmPair, pxPair };
+module.exports = { pxToRem, pxToRemPair, pxToEm, pxToEmPair, pxPair };
