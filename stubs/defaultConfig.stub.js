@@ -3,7 +3,7 @@ module.exports = {
     prefix: {
       components: 'c-', // Falsey value will default to config.prefix instead
       objects: 'o-',
-    }
+    },
   },
   theme: {
     activeBreakpoint: (theme) => ({

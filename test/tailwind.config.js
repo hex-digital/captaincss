@@ -1,7 +1,6 @@
 const Captaincss = require('../.');
 
 module.exports = {
-  prefix: 'u-',
   purge: {
     content: [
       './src/**/*.html',
@@ -12,4 +11,11 @@ module.exports = {
     ],
   },
   plugins: [Captaincss],
+  prefix: 'u-',
+  captain: {
+    prefix: {
+      objects: 'o-',
+      components: 'c-',
+    },
+  },
 };
