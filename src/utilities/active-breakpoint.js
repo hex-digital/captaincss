@@ -10,9 +10,17 @@ module.exports = function ({ addUtilities, config, theme, e }) {
   const ignoredScreens = theme('activeBreakpoint.ignoreScreens');
   const userStyles = theme('activeBreakpoint.styles');
 
-  const selector = theme('activeBreakpoint.selector');
+  let selector = theme('activeBreakpoint.selector');
   const pseudo = theme('activeBreakpoint.pseudo');
-  const sanitisedSelector = `${e(selector)}::${e(pseudo)}`;
+
+  let sanitisedSelector;
+  const firstChar = selector.charAt(0);
+  const selectorIsClassOrId = firstChar === '.' || firstChar === '#';
+
+  // We must not sanitise the first char if it's . or #, as that will escape it
+  selector = selectorIsClassOrId ? firstChar + e(selector.substring(1)) : e(selector);
+
+  sanitisedSelector = `${selector}::${e(pseudo)}`;
 
   const position = theme('activeBreakpoint.position');
   const positionY = position[0];
