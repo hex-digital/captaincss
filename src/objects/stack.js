@@ -39,18 +39,20 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
 
   const stack = {
     [prefixObject('.stack')]: {
-      '--stack-reverse': '0',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-start',
     },
     [prefixObject('.stack--reverse')]: {
-      '--stack-reverse': '1',
       flexDirection: 'column-reverse',
     },
     [prefixObject('.stack > *')]: {
+      '--stack-reverse': '0',
       marginTop: '0',
       marginBottom: '0',
+    },
+    [prefixObject('.stack--reverse > *')]: {
+      '--stack-reverse': '1',
     },
     [prefixObject('.stack > * + *')]: {
       marginTop: 'calc(var(--stack-space) * calc(1 - var(--stack-reverse)))',
@@ -69,7 +71,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
     const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
 
     const style = {
-      [prefixObject(`.${e(`stack${mod}`)}`)]: {
+      [prefixObject(`.${e(`stack${mod}`)} > *`)]: {
         '--stack-space': spacingValue,
       },
     };
