@@ -1,5 +1,14 @@
 # Changelog
 
+### [2.2.4](https://github.com/hex-digital/captaincss/compare/v2.2.3...v2.2.4) (2021-01-01)
+
+
+### Bug Fixes
+
+* fix for incorrect import in src/defaultConfig ([15cff58](https://github.com/hex-digital/captaincss/commit/15cff58f54866dafacefbeac955bc811045dfe41))
+* fix for sanitised active breakpoint class selector ([7da790a](https://github.com/hex-digital/captaincss/commit/7da790a3a1b5536b42865d15dba47268b0eab468))
+* fix nesting stacks so they no longer need extra div wrapper ([5757b47](https://github.com/hex-digital/captaincss/commit/5757b47215129ff10e5f8550b2a8d3df8013467b))
+
 ### [2.2.3](https://github.com/hex-digital/captaincss/compare/v2.2.2...v2.2.3) (2020-12-29)
 
 
