@@ -56,6 +56,9 @@ module.exports = {
     skipLink: {
       styles: {},
     },
+    textShadow: {
+      DEFAULT: '0 2px 4px rgba(0,0,0,0.10)',
+    },
     wrapper: {
       padding: {
         DEFAULT: '1rem',
