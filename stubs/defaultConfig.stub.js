@@ -1,3 +1,5 @@
+const { pxPair } = require('../helpers');
+
 module.exports = {
   captain: {
     prefix: {
@@ -16,10 +18,23 @@ module.exports = {
       selector: 'body',
       pseudo: 'before',
     }),
+    cappedGrid: {
+      maxColumnWidth: {
+        ...pxPair(250),
+      },
+    },
     cluster: (theme) => ({
       gap: {
         DEFAULT: '1rem',
         ...theme('space'),
+      },
+    }),
+    cover: (theme) => ({
+      minHeight: {
+        DEFAULT: '100vh',
+        '90vh': '90vh',
+        '95vh': '95vh',
+        ...theme('maxHeight')
       },
     }),
     debug: {

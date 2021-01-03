@@ -7,6 +7,8 @@ const addClusterComponent = require('./objects/cluster');
 const addFrameComponent = require('./objects/frame');
 const addStackComponent = require('./objects/stack');
 const addWrapperComponent = require('./objects/wrapper');
+const addCoverComponent = require('./objects/cover');
+const addCappedGridComponent = require('./objects/capped-grid');
 
 const addSkipLinkComponent = require('./components/skip-link');
 
@@ -29,6 +31,8 @@ module.exports = plugin(function (params) {
   addFrameComponent(params);
   addStackComponent(params);
   addWrapperComponent(params);
+  addCoverComponent(params);
+  addCappedGridComponent(params);
 
   addSkipLinkComponent(params);
 
