@@ -47,6 +47,12 @@ module.exports = {
         golden: '1.618:1',
       },
     },
+    layout: (theme) => ({
+      gap: {
+        DEFAULT: '1rem',
+        ...theme('space'),
+      },
+    }),
     stack: (theme) => ({
       gap: {
         DEFAULT: '1rem',
@@ -78,6 +84,10 @@ module.exports = {
     cluster: ['responsive'],
     frame: ['responsive'],
     isolation: ['responsive'],
+    layout: [],
+    layoutGaps: ['responsive'],
+    layoutItem: [],
+    layoutItemOrder: ['responsive'],
     mixBlendMode: ['responsive', 'hover'],
     stack: ['responsive'],
     wrapperBreak: ['responsive'],

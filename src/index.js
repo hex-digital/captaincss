@@ -9,6 +9,7 @@ const addStackComponent = require('./objects/stack');
 const addWrapperComponent = require('./objects/wrapper');
 const addCoverComponent = require('./objects/cover');
 const addCappedGridComponent = require('./objects/capped-grid');
+const addLayoutComponent = require('./objects/layout');
 
 const addSkipLinkComponent = require('./components/skip-link');
 
@@ -33,6 +34,7 @@ module.exports = plugin(function (params) {
   addWrapperComponent(params);
   addCoverComponent(params);
   addCappedGridComponent(params);
+  addLayoutComponent(params);
 
   addSkipLinkComponent(params);
 
