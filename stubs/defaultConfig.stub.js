@@ -1,4 +1,4 @@
-const { pxPair } = require('../helpers');
+const {pxPair} = require('../helpers');
 
 module.exports = {
   captain: {
