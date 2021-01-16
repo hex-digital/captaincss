@@ -1,4 +1,4 @@
-const {pxPair} = require('../helpers');
+const {pxToRemPair} = require('../helpers');
 
 module.exports = {
   captain: {
@@ -20,7 +20,7 @@ module.exports = {
     }),
     cappedGrid: {
       maxColumnWidth: {
-        ...pxPair(250),
+        ...pxToRemPair(250),
       },
     },
     cluster: (theme) => ({
