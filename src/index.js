@@ -7,6 +7,7 @@ const addClusterComponent = require('./objects/cluster');
 const addFrameComponent = require('./objects/frame');
 const addStackComponent = require('./objects/stack');
 const addWrapperComponent = require('./objects/wrapper');
+const addWrapperHalfComponent = require('./objects/wrapper-half');
 const addCoverComponent = require('./objects/cover');
 const addCappedGridComponent = require('./objects/capped-grid');
 const addLayoutComponent = require('./objects/layout');
@@ -33,6 +34,7 @@ module.exports = plugin(function (params) {
   addFrameComponent(params);
   addStackComponent(params);
   addWrapperComponent(params);
+  addWrapperHalfComponent(params);
   addCoverComponent(params);
   addCappedGridComponent(params);
   addLayoutComponent(params);

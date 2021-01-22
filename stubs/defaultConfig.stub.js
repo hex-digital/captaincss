@@ -91,5 +91,7 @@ module.exports = {
     mixBlendMode: ['responsive', 'hover'],
     stack: ['responsive'],
     wrapperBreak: ['responsive'],
+    wrapperHalf: ['responsive'],
+    wrapperHalfSides: ['responsive'],
   },
 };

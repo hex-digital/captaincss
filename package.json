@@ -47,7 +47,8 @@
     "tailwindcss": "^2.x.x"
   },
   "dependencies": {
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "reduce-css-calc": "^2.1.8"
   },
   "browserslist": [
     "> 1%",
