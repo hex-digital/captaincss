@@ -11,7 +11,7 @@
 
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
+module.exports = function ({ addComponents, config, theme, variants, e, prefixObject, modSep }) {
   if (pluginDisabled('frame', config)) return;
 
   const ratios = theme('frame.ratios');
@@ -48,7 +48,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
   for (const [ratioName, ratioPair] of Object.entries(ratios)) {
     const [antecedent, consequent] = ratioPair.split(':');
     frame.push({
-      [prefixObject(`.${e(`frame--${ratioName}`)}`)]: {
+      [prefixObject(`.${e(`frame${modSep}${ratioName}`)}`)]: {
         '--frame-antecedent': antecedent,
         '--frame-consequent': consequent,
       },

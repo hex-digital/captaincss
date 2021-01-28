@@ -11,7 +11,16 @@
 
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
+module.exports = function ({
+  addComponents,
+  config,
+  theme,
+  variants,
+  e,
+  prefixObject,
+  elSep,
+  modSep,
+}) {
   if (pluginDisabled('cover', config)) return;
 
   const minHeights = theme('cover.minHeight');
@@ -22,7 +31,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
       flexDirection: 'column',
       minHeight: 'var(--cover-min-height)',
     },
-    [prefixObject('.cover__main')]: {
+    [prefixObject(`.cover${elSep}main`)]: {
       marginBottom: 'auto',
       marginTop: 'auto',
     },
@@ -36,7 +45,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
   const coverMinHeightModifiers = [];
 
   for (const [modifier, minHeightValue] of Object.entries(minHeights)) {
-    const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
+    const mod = modifier === 'DEFAULT' ? '' : `${modSep}${modifier}`;
 
     const style = {
       [prefixObject(`.${e(`cover${mod}`)}`)]: {

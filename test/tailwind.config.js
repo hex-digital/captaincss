@@ -17,5 +17,9 @@ module.exports = {
       objects: 'o-',
       components: 'c-',
     },
+    separator: {
+      elements: '__',
+      modifiers: '--',
+    },
   },
 };

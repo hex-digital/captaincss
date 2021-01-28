@@ -30,7 +30,16 @@ const _ = require('lodash');
 const reduceCSSCalc = require('reduce-css-calc');
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
+module.exports = function ({
+  addComponents,
+  config,
+  theme,
+  variants,
+  e,
+  prefixObject,
+  elSep,
+  modSep,
+}) {
   if (pluginDisabled('wrapperEdge', config)) return;
 
   let padding = theme('wrapper.padding');
@@ -46,7 +55,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
   const wrapperEdge = [];
 
   for (const [modifier, widthValue] of Object.entries(maxWidth)) {
-    const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
+    const mod = modifier === 'DEFAULT' ? '' : `${modSep}${modifier}`;
 
     const style = {
       [prefixObject(`.${e(`wrapper-edge${mod}`)}`)]: {
@@ -70,13 +79,13 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
 
   for (let [screenName, paddingValue] of Object.entries(padding)) {
     let style = {
-      [prefixObject('.wrapper-edge--left')]: {
+      [prefixObject(`.wrapper-edge${modSep}left`)]: {
         marginLeft: 'auto',
         marginRight: 'unset',
         paddingLeft: paddingValue,
         paddingRight: 'unset',
       },
-      [prefixObject('.wrapper-edge--right')]: {
+      [prefixObject(`.wrapper-edge${modSep}right`)]: {
         marginLeft: 'unset',
         marginRight: 'auto',
         paddingLeft: 'unset',

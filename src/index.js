@@ -29,6 +29,8 @@ module.exports = plugin(function (params) {
     params.config('captain.prefix.components'),
     params.config('prefix')
   );
+  params.elSep = params.config('captain.separator.elements') || '-';
+  params.modSep = params.config('captain.separator.modifiers') || '-';
 
   addClusterComponent(params);
   addFrameComponent(params);

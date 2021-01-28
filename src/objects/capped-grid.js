@@ -10,7 +10,7 @@
 
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
+module.exports = function ({ addComponents, config, theme, variants, e, prefixObject, modSep }) {
   if (pluginDisabled('cappedGrid', config)) return;
 
   const maxColumnWidths = theme('cappedGrid.maxColumnWidth');
@@ -30,7 +30,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
   const gridWidthModifiers = [];
 
   for (const [modifier, maxColumnWidthValue] of Object.entries(maxColumnWidths)) {
-    const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
+    const mod = modifier === 'DEFAULT' ? '' : `${modSep}${modifier}`;
 
     const style = {
       [`@supports (width: min(${maxColumnWidthValue}, 100%))`]: {

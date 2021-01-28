@@ -13,7 +13,7 @@
 const _ = require('lodash');
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
+module.exports = function ({ addComponents, config, theme, variants, e, prefixObject, modSep }) {
   if (pluginDisabled('cluster', config)) return;
 
   let gap = theme('cluster.gap');
@@ -46,7 +46,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
   const clusterModifiers = [];
 
   for (const [modifier, spacingValue] of Object.entries(gap)) {
-    const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
+    const mod = modifier === 'DEFAULT' ? '' : `${modSep}${modifier}`;
 
     const style = {
       [prefixObject(`.${e(`cluster${mod}`)}`)]: {

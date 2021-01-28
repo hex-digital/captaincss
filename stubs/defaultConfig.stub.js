@@ -3,9 +3,13 @@ const {pxToRemPair} = require('../helpers');
 module.exports = {
   captain: {
     prefix: {
-      components: 'c-', // Falsey value will default to config.prefix instead
-      objects: 'o-',
+      components: false, // Falsey value will default to config.prefix instead
+      objects: false,
     },
+    separator: {
+      elements: '-',
+      modifiers: '-',
+    }
   },
   theme: {
     activeBreakpoint: (theme) => ({

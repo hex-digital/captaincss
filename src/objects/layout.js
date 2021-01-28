@@ -33,11 +33,11 @@
  * second and third items will be 50% of their parent, until they also become
  * 33.333% width at the medium breakpoint.
  *
- * Several modifier classes are provided. For example, `layout--auto` will
+ * Several modifier classes are provided. For example, `layout-auto` will
  * divide the space equally between all containing layout items without the need
  * for width utility classes.
  *
- *   <div class="layout layout--auto">
+ *   <div class="layout layout-auto">
  *     <div>Column 1, 25% width</div>
  *     <div>Column 2, 25% width</div>
  *     <div>Column 3, 25% width</div>
@@ -48,7 +48,17 @@
 const _ = require('lodash');
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e, prefix, prefixObject }) {
+module.exports = function ({
+  addComponents,
+  config,
+  theme,
+  variants,
+  e,
+  prefix,
+  prefixObject,
+  elSep,
+  modSep,
+}) {
   if (pluginDisabled('layout', config)) return;
 
   let gap = theme('layout.gap');
@@ -57,7 +67,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefix, 
   }
 
   const defaultGap = gap.DEFAULT || '0';
-  const layoutItemClass = '.layout__item';
+  const layoutItemClass = `.layout${elSep}item`;
 
   /**
    * 1. We need to defensively reset any box-model properties.
@@ -123,7 +133,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefix, 
   const layoutGapModifiers = [];
 
   // We need to manually handle responsive modifiers, as relying on the automated responsive variant will put the
-  // screen prefix on the layout item, i.e. `md:layout__item` rather than `md:layout--gap-{x}`
+  // screen prefix on the layout item, i.e. `md:layout-item` rather than `md:layout-gap-{x}`
   let responsive = false;
   const layoutGapVariants = variants('layoutGaps');
   if (layoutGapVariants.includes('responsive')) {
@@ -138,7 +148,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefix, 
       if (modifier === 'DEFAULT') continue; // Covered in the base block styles
 
       // Prefix object without screenPrefix on it, then add screenPrefix afterwards, otherwise we get o-md:layout-item
-      let layoutClass = prefixObject(`.${e(`layout--gap-${modifier}`)}`);
+      let layoutClass = prefixObject(`.${e(`layout${modSep}gap-${modifier}`)}`);
       layoutClass = '.' + screenPrefix + layoutClass.slice(1);
 
       const style = {
@@ -178,7 +188,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefix, 
   });
 
   const layoutModifiers = {
-    [prefixObject(`.layout--auto > ${layoutItemClass}`)]: {
+    [prefixObject(`.layout${modSep}auto > ${layoutItemClass}`)]: {
       width: 'auto',
     },
   };

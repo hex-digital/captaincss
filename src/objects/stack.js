@@ -29,7 +29,7 @@
 const _ = require('lodash');
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
+module.exports = function ({ addComponents, config, theme, variants, e, prefixObject, modSep }) {
   if (pluginDisabled('stack', config)) return;
 
   let gap = theme('stack.gap');
@@ -43,7 +43,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
       flexDirection: 'column',
       justifyContent: 'flex-start',
     },
-    [prefixObject('.stack--reverse')]: {
+    [prefixObject(`.stack${modSep}reverse`)]: {
       flexDirection: 'column-reverse',
     },
     [prefixObject('.stack > *')]: {
@@ -51,7 +51,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
       marginTop: '0',
       marginBottom: '0',
     },
-    [prefixObject('.stack--reverse > *')]: {
+    [prefixObject(`.stack${modSep}reverse > *`)]: {
       '--stack-reverse': '1',
     },
     [prefixObject('.stack > * + *')]: {
@@ -68,7 +68,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
   const stackModifiers = [];
 
   for (const [modifier, spacingValue] of Object.entries(gap)) {
-    const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
+    const mod = modifier === 'DEFAULT' ? '' : `${modSep}${modifier}`;
 
     const style = {
       [prefixObject(`.${e(`stack${mod}`)} > *`)]: {
