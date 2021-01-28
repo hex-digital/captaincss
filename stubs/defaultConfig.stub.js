@@ -90,8 +90,9 @@ module.exports = {
     layoutItemOrder: ['responsive'],
     mixBlendMode: ['responsive', 'hover'],
     stack: ['responsive'],
+    wrapper: ['responsive'],
     wrapperBreak: ['responsive'],
-    wrapperHalf: ['responsive'],
-    wrapperHalfSides: ['responsive'],
+    wrapperEdge: ['responsive'],
+    wrapperEdgeSides: ['responsive'],
   },
 };
