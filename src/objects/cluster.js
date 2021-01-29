@@ -32,7 +32,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
         alignItems: 'center',
         display: 'flex',
         flexWrap: 'wrap',
-        gap: `var(--cluster-space)`,
+        gap: `var(--cluster-y-space, ${gap}) var(--cluster-x-space, ${gap})`,
         justifyContent: 'flex-start',
       },
     };
@@ -46,11 +46,11 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
-        margin: `calc((var(--cluster-space) / 2) * -1)`,
+        margin: `calc((var(--cluster-y-space, ${gap}) / 2) * -1) calc((var(--cluster-x-space, ${gap}) / 2) * -1)`,
       },
 
       [prefixObject('.cluster > * > *')]: {
-        margin: `calc(var(--cluster-space) / 2)`,
+        margin: `calc(var(--cluster-y-space, ${gap}) / 2) calc(var(--cluster-x-space, ${gap}) / 2)`,
       },
     };
   }
@@ -67,9 +67,18 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
 
     const style = {
       [prefixObject(`.${e(`cluster${mod}`)}`)]: {
-        '--cluster-space': spacingValue,
+        '--cluster-x-space': spacingValue,
+        '--cluster-y-space': spacingValue,
       },
     };
+    if (modifier !== 'DEFAULT') {
+      style[prefixObject(`.${e(`cluster${modSep}x-${modifier}`)}`)] = {
+        '--cluster-x-space': spacingValue,
+      };
+      style[prefixObject(`.${e(`cluster${modSep}y-${modifier}`)}`)] = {
+        '--cluster-y-space': spacingValue,
+      };
+    }
 
     if (modifier === 'DEFAULT') {
       // Default should come before the other modifiers, so that it can be overridden
