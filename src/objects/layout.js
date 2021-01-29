@@ -61,13 +61,16 @@ module.exports = function ({
 }) {
   if (pluginDisabled('layout', config)) return;
 
+  // Disabling this for now as we haven't solved how to get two 50% containers without wrapping when they have a gap applied
+  const supportFlexGap = false; // config('captain.support.flexGap') || false;
+
   let gap = theme('layout.gap');
   if (_.isString(gap)) {
     gap = { DEFAULT: gap };
   }
 
   const defaultGap = gap.DEFAULT || '0';
-  const layoutItemClass = `.layout${elSep}item`;
+  const layoutItemClass = supportFlexGap ? `.layout > *` : `.layout${elSep}item`;
 
   /**
    * 1. We need to defensively reset any box-model properties.
@@ -75,18 +78,33 @@ module.exports = function ({
    * 3. Use the negative margin trick for multi-row grids:
    *    http://csswizardry.com/2011/08/building-better-grid-systems/
    */
-  const layout = {
-    [prefixObject('.layout')]: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      alignItems: 'flex-start', // Stretch by default. Do we want this, or stretch?
-      margin: '0' /* [1] */,
-      padding: '0' /* [1] */,
-      listStyle: 'none' /* [2] */,
-      marginTop: '-' + defaultGap /* [3] */,
-      marginLeft: '-' + defaultGap /* [3] */,
-    },
-  };
+  let layout;
+  if (supportFlexGap) {
+    layout = {
+      [prefixObject('.layout')]: {
+        '--layout-gap': defaultGap,
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'flex-start',
+        listStyle: 'none' /* [2] */,
+        gap: 'var(--layout-gap)',
+      },
+    };
+  } else {
+    layout = {
+      [prefixObject('.layout')]: {
+        '--layout-gap': defaultGap,
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'flex-start',
+        margin: '0' /* [1] */,
+        padding: '0' /* [1] */,
+        listStyle: 'none' /* [2] */,
+        marginTop: `calc(var(--layout-gap) * -1)` /* [3] */,
+        marginLeft: `calc(var(--layout-gap) * -1)` /* [3] */,
+      },
+    };
+  }
 
   addComponents(layout, {
     respectPrefix: false,
@@ -101,15 +119,26 @@ module.exports = function ({
    * 4. Set a default order, so we can increase or decrease that number with
    *    our `.is-first` and `.is-last` state classes.
    */
-  const layoutItem = {
-    [prefixObject(layoutItemClass)]: {
-      boxSizing: 'border-box' /* [1] */,
-      width: '100%' /* [2] */,
-      marginTop: defaultGap /* [3] */,
-      paddingLeft: defaultGap /* [3] */,
-      order: '5' /* [4] */,
-    },
-  };
+  let layoutItem;
+  if (supportFlexGap) {
+    layoutItem = {
+      [prefixObject(layoutItemClass)]: {
+        boxSizing: 'border-box' /* [1] */,
+        width: '100%' /* [2] */,
+        order: '5' /* [4] */,
+      },
+    };
+  } else {
+    layoutItem = {
+      [prefixObject(layoutItemClass)]: {
+        boxSizing: 'border-box' /* [1] */,
+        width: '100%' /* [2] */,
+        marginTop: 'var(--layout-gap)' /* [3] */,
+        paddingLeft: 'var(--layout-gap)' /* [3] */,
+        order: '5' /* [4] */,
+      },
+    };
+  }
 
   addComponents(layoutItem, {
     respectPrefix: false,
@@ -153,12 +182,7 @@ module.exports = function ({
 
       const style = {
         [layoutClass]: {
-          marginTop: '-' + gapSize,
-          marginLeft: '-' + gapSize,
-          [prefixObject(`> ${layoutItemClass}`)]: {
-            marginTop: gapSize,
-            paddingLeft: gapSize,
-          },
+          '--layout-gap': gapSize,
         },
       };
       Object.assign(prefixedLayoutGapModifiers, style);
@@ -188,7 +212,7 @@ module.exports = function ({
   });
 
   const layoutModifiers = {
-    [prefixObject(`.layout${modSep}auto > ${layoutItemClass}`)]: {
+    [prefixObject(`.layout${modSep}auto > ${supportFlexGap ? '*' : layoutItemClass}`)]: {
       width: 'auto',
     },
   };

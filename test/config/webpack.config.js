@@ -59,6 +59,14 @@ module.exports = {
       template: paths.src + '/bemit.html', // template file
       filename: 'bemit.html', // output file
     }),
+
+    // Generates an HTML file from a template
+    // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
+    new HtmlWebpackPlugin({
+      title: 'Test the Captain',
+      template: paths.src + '/supportFlexGap.html', // template file
+      filename: 'supportFlexGap.html', // output file
+    }),
   ],
 
   // Determine how modules within the project are treated

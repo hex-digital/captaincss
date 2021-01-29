@@ -16,27 +16,44 @@ const { pluginDisabled } = require('../utilities');
 module.exports = function ({ addComponents, config, theme, variants, e, prefixObject, modSep }) {
   if (pluginDisabled('cluster', config)) return;
 
+  const supportFlexGap = config('captain.support.flexGap') || false;
+
   let gap = theme('cluster.gap');
   if (_.isString(gap)) {
     gap = { DEFAULT: gap };
   }
 
-  const cluster = {
-    [prefixObject('.cluster')]: {
-      overflow: 'hidden',
-    },
-    [prefixObject('.cluster > *')]: {
-      alignItems: 'center',
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'flex-start',
-      margin: `calc((var(--cluster-space) / 2) * -1)`,
-    },
+  let cluster;
 
-    [prefixObject('.cluster > * > *')]: {
-      margin: `calc(var(--cluster-space) / 2)`,
-    },
-  };
+  // With Flexbox Gap we no longer need the outer wrapping element
+  if (supportFlexGap) {
+    cluster = {
+      [prefixObject('.cluster')]: {
+        alignItems: 'center',
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: `var(--cluster-space)`,
+        justifyContent: 'flex-start',
+      },
+    };
+  } else {
+    cluster = {
+      [prefixObject('.cluster')]: {
+        overflow: 'hidden',
+      },
+      [prefixObject('.cluster > *')]: {
+        alignItems: 'center',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
+        margin: `calc((var(--cluster-space) / 2) * -1)`,
+      },
+
+      [prefixObject('.cluster > * > *')]: {
+        margin: `calc(var(--cluster-space) / 2)`,
+      },
+    };
+  }
 
   addComponents(cluster, {
     respectPrefix: false,
