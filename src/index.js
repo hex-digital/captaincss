@@ -21,8 +21,6 @@ const addTextShadowUtility = require('./utilities/text-shadow');
 const addDebugUtility = require('./utilities/debug');
 
 module.exports = plugin(function (params) {
-  console.log(params.config('captain'));
-
   params.prefixObject = createPrefixer(
     params.config('captain.prefix.objects'),
     params.config('prefix')
