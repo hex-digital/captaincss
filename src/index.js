@@ -7,12 +7,17 @@ const addClusterComponent = require('./objects/cluster');
 const addFrameComponent = require('./objects/frame');
 const addStackComponent = require('./objects/stack');
 const addWrapperComponent = require('./objects/wrapper');
+const addWrapperEdgeComponent = require('./objects/wrapper-edge');
+const addCoverComponent = require('./objects/cover');
+const addCappedGridComponent = require('./objects/capped-grid');
+const addLayoutComponent = require('./objects/layout');
 
 const addSkipLinkComponent = require('./components/skip-link');
 
 const addActiveBreakpointUtility = require('./utilities/active-breakpoint');
 const addIntrinsicCenterUtility = require('./utilities/intrinsic-center');
 const addBlendModeUtility = require('./utilities/blend-mode');
+const addTextShadowUtility = require('./utilities/text-shadow');
 const addDebugUtility = require('./utilities/debug');
 
 module.exports = plugin(function (params) {
@@ -24,16 +29,23 @@ module.exports = plugin(function (params) {
     params.config('captain.prefix.components'),
     params.config('prefix')
   );
+  params.elSep = params.config('captain.separator.elements') || '-';
+  params.modSep = params.config('captain.separator.modifiers') || '-';
 
   addClusterComponent(params);
   addFrameComponent(params);
   addStackComponent(params);
   addWrapperComponent(params);
+  addWrapperEdgeComponent(params);
+  addCoverComponent(params);
+  addCappedGridComponent(params);
+  addLayoutComponent(params);
 
   addSkipLinkComponent(params);
 
   addActiveBreakpointUtility(params);
   addIntrinsicCenterUtility(params);
   addBlendModeUtility(params);
+  addTextShadowUtility(params);
   addDebugUtility(params);
 }, defaultConfig);

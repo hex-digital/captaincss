@@ -15,7 +15,16 @@
 const _ = require('lodash');
 const { extractMinWidths, mapMinWidthsToValues, pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
+module.exports = function ({
+  addComponents,
+  config,
+  theme,
+  variants,
+  e,
+  prefixObject,
+  elSep,
+  modSep,
+}) {
   if (pluginDisabled('wrapper', config)) return;
 
   const screens = theme('wrapper.screens', theme('screens'));
@@ -82,7 +91,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
   ];
 
   for (const [modifier, widthValue] of Object.entries(maxWidth)) {
-    const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
+    const mod = modifier === 'DEFAULT' ? '' : `${modSep}${modifier}`;
 
     const style = {
       [prefixObject(`.${e(`wrapper${mod}`)}`)]: {
@@ -104,12 +113,12 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
 
   const wrapperBreak = {
     [prefixObject('.wrapper')]: {
-      '&__wide': {
+      [`&${elSep}wide`]: {
         maxWidth: '100vw',
         marginLeft: 'calc(-90vw / 2 + 100% / 2)',
         marginRight: 'calc(-90vw / 2 + 100% / 2)',
       },
-      '&__bleed': {
+      [`&${elSep}bleed`]: {
         marginLeft: 'calc(-100vw / 2 + 100% / 2)',
         marginRight: 'calc(-100vw / 2 + 100% / 2)',
         maxWidth: '100vw',

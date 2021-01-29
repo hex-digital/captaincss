@@ -20,7 +20,7 @@ module.exports = function ({ addComponents, config, theme, variants, prefixCompo
           height: '1px',
           overflow: 'hidden',
           padding: '20px',
-          position: 'absolute',
+          position: 'fixed',
           textDecoration: 'underline',
           top: '1rem',
           left: '1rem',

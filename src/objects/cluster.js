@@ -13,30 +13,47 @@
 const _ = require('lodash');
 const { pluginDisabled } = require('../utilities');
 
-module.exports = function ({ addComponents, config, theme, variants, e, prefixObject }) {
+module.exports = function ({ addComponents, config, theme, variants, e, prefixObject, modSep }) {
   if (pluginDisabled('cluster', config)) return;
+
+  const supportFlexGap = config('captain.support.flexGap') || false;
 
   let gap = theme('cluster.gap');
   if (_.isString(gap)) {
     gap = { DEFAULT: gap };
   }
 
-  const cluster = {
-    [prefixObject('.cluster')]: {
-      overflow: 'hidden',
-    },
-    [prefixObject('.cluster > *')]: {
-      alignItems: 'center',
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'flex-start',
-      margin: `calc((var(--cluster-space) / 2) * -1)`,
-    },
+  let cluster;
 
-    [prefixObject('.cluster > * > *')]: {
-      margin: `calc(var(--cluster-space) / 2)`,
-    },
-  };
+  // With Flexbox Gap we no longer need the outer wrapping element
+  if (supportFlexGap) {
+    cluster = {
+      [prefixObject('.cluster')]: {
+        alignItems: 'center',
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: `var(--cluster-y-space, ${gap}) var(--cluster-x-space, ${gap})`,
+        justifyContent: 'flex-start',
+      },
+    };
+  } else {
+    cluster = {
+      [prefixObject('.cluster')]: {
+        overflow: 'hidden',
+      },
+      [prefixObject('.cluster > *')]: {
+        alignItems: 'center',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
+        margin: `calc((var(--cluster-y-space, ${gap}) / 2) * -1) calc((var(--cluster-x-space, ${gap}) / 2) * -1)`,
+      },
+
+      [prefixObject('.cluster > * > *')]: {
+        margin: `calc(var(--cluster-y-space, ${gap}) / 2) calc(var(--cluster-x-space, ${gap}) / 2)`,
+      },
+    };
+  }
 
   addComponents(cluster, {
     respectPrefix: false,
@@ -46,13 +63,22 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
   const clusterModifiers = [];
 
   for (const [modifier, spacingValue] of Object.entries(gap)) {
-    const mod = modifier === 'DEFAULT' ? '' : `--${modifier}`;
+    const mod = modifier === 'DEFAULT' ? '' : `${modSep}${modifier}`;
 
     const style = {
       [prefixObject(`.${e(`cluster${mod}`)}`)]: {
-        '--cluster-space': spacingValue,
+        '--cluster-x-space': spacingValue,
+        '--cluster-y-space': spacingValue,
       },
     };
+    if (modifier !== 'DEFAULT') {
+      style[prefixObject(`.${e(`cluster${modSep}x-${modifier}`)}`)] = {
+        '--cluster-x-space': spacingValue,
+      };
+      style[prefixObject(`.${e(`cluster${modSep}y-${modifier}`)}`)] = {
+        '--cluster-y-space': spacingValue,
+      };
+    }
 
     if (modifier === 'DEFAULT') {
       // Default should come before the other modifiers, so that it can be overridden

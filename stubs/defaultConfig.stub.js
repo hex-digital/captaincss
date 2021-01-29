@@ -1,9 +1,18 @@
+const {pxToRemPair} = require('../helpers');
+
 module.exports = {
   captain: {
-    prefix: {
-      components: 'c-', // Falsey value will default to config.prefix instead
-      objects: 'o-',
+    support: {
+      flexGap: false,
     },
+    prefix: {
+      components: false, // Falsey value will default to config.prefix instead
+      objects: false,
+    },
+    separator: {
+      elements: '-',
+      modifiers: '-',
+    }
   },
   theme: {
     activeBreakpoint: (theme) => ({
@@ -16,10 +25,23 @@ module.exports = {
       selector: 'body',
       pseudo: 'before',
     }),
+    cappedGrid: {
+      maxColumnWidth: {
+        ...pxToRemPair(250),
+      },
+    },
     cluster: (theme) => ({
       gap: {
         DEFAULT: '1rem',
         ...theme('space'),
+      },
+    }),
+    cover: (theme) => ({
+      minHeight: {
+        DEFAULT: '100vh',
+        '90vh': '90vh',
+        '95vh': '95vh',
+        ...theme('maxHeight')
       },
     }),
     debug: {
@@ -32,6 +54,12 @@ module.exports = {
         golden: '1.618:1',
       },
     },
+    layout: (theme) => ({
+      gap: {
+        DEFAULT: '1rem',
+        ...theme('space'),
+      },
+    }),
     stack: (theme) => ({
       gap: {
         DEFAULT: '1rem',
@@ -40,6 +68,9 @@ module.exports = {
     }),
     skipLink: {
       styles: {},
+    },
+    textShadow: {
+      DEFAULT: '0 2px 4px rgba(0,0,0,0.10)',
     },
     wrapper: {
       padding: {
@@ -60,8 +91,15 @@ module.exports = {
     cluster: ['responsive'],
     frame: ['responsive'],
     isolation: ['responsive'],
+    layout: [],
+    layoutGaps: ['responsive'],
+    layoutItem: [],
+    layoutItemOrder: ['responsive'],
     mixBlendMode: ['responsive', 'hover'],
     stack: ['responsive'],
+    wrapper: ['responsive'],
     wrapperBreak: ['responsive'],
+    wrapperEdge: ['responsive'],
+    wrapperEdgeSides: ['responsive'],
   },
 };

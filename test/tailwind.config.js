@@ -13,9 +13,16 @@ module.exports = {
   plugins: [Captaincss],
   prefix: 'u-',
   captain: {
+    support: {
+      flexGap: false, // https://caniuse.com/flexbox-gap
+    },
     prefix: {
       objects: 'o-',
       components: 'c-',
+    },
+    separator: {
+      elements: '__',
+      modifiers: '--',
     },
   },
 };
