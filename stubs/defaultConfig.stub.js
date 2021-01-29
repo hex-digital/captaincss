@@ -3,7 +3,7 @@ const {pxToRemPair} = require('../helpers');
 module.exports = {
   captain: {
     support: {
-      cssGap: false,
+      flexGap: false,
     },
     prefix: {
       components: false, // Falsey value will default to config.prefix instead
