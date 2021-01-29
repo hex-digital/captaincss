@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.3.0](https://github.com/hex-digital/captaincss/compare/v2.2.4...v2.3.0) (2021-01-29)
+
+
+### Features
+
+* add ability to change modiifier and element separators ([8f98cc6](https://github.com/hex-digital/captaincss/commit/8f98cc623d2ac408dfa6d34c6c33d1fbdda25667))
+* add cover and capped-grid layout objects ([236b529](https://github.com/hex-digital/captaincss/commit/236b529f3d325b1f0eca7caf36ead1ba1f65cdaa))
+* add support for changing cluster x and y spacing independently ([e5aedac](https://github.com/hex-digital/captaincss/commit/e5aedac8b4317e4708c9799e04f5b62f41506964))
+* add support for flex gap to cluster ([5a7fa1a](https://github.com/hex-digital/captaincss/commit/5a7fa1a0b54b570b72cc41beb3ef20bc3a27f05a))
+* add Wrapper Half object ([642491c](https://github.com/hex-digital/captaincss/commit/642491c77724f5b4c45fb335161008ce1a418308))
+* **layout:** add layout object ([027c827](https://github.com/hex-digital/captaincss/commit/027c82744189eff2a3d9c17bf9bdec8e8f1c9848))
+* add text shadow utilities ([59514ab](https://github.com/hex-digital/captaincss/commit/59514ab5a89cce2ac8aaa536a9d5dee3ef8229a9))
+
+
+### Bug Fixes
+
+* add text shadow utility to compiled output ([6222310](https://github.com/hex-digital/captaincss/commit/6222310b036267202a253552403a6d5dd7910429))
+* fix default value for flexGap in config ([46cbf4c](https://github.com/hex-digital/captaincss/commit/46cbf4cd62b9e0a9a24d00b2dbc0a33f0c464180))
+* fix skip-link scrolling user to top of page when used ([68a04b1](https://github.com/hex-digital/captaincss/commit/68a04b118bbe74d8b1483a6ead32be69d1d0bfe1))
+
 ### [2.2.4](https://github.com/hex-digital/captaincss/compare/v2.2.3...v2.2.4) (2021-01-01)
 
 
