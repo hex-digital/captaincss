@@ -14,7 +14,7 @@ Talk the same language as other developers, and share a set of common objects ac
   </a>
   <a href="https://github.com/hex-digital/captaincss/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@captaincss/captaincss.svg?style=for-the-badge" alt="License"></a>
   <a href="https://twitter.com/jamiew_tv" target="_blank">
-    <img alt="Twitter: jamiew_tv" src="https://img.shields.io/twitter/follow/jamiew_tv.svg?style=social" />
+    <img alt="Twitter: jamiewarb" src="https://img.shields.io/twitter/follow/jamiewarb.svg?style=social" />
   </a>
 </p>
 
