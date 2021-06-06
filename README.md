@@ -9,8 +9,8 @@ Talk the same language as other developers, and share a set of common objects ac
 <p>
   <a href="https://www.npmjs.com/package/@captaincss/captaincss"><img alt="Version" src="https://img.shields.io/npm/v/@captaincss/captaincss?style=for-the-badge" /></a>
   <a href="https://www.npmjs.com/package/@captaincss/captaincss"><img src="https://img.shields.io/npm/dt/@captaincss/captaincss.svg?style=for-the-badge" alt="Total Downloads"></a>
-  <a href="https://github.com/hex-digital/captaincss/wiki" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-wip-red.svg?style=for-the-badge" />
+  <a href="https://captaincss.hexdigital.com/" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-green.svg?style=for-the-badge" />
   </a>
   <a href="https://github.com/hex-digital/captaincss/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@captaincss/captaincss.svg?style=for-the-badge" alt="License"></a>
   <a href="https://twitter.com/jamiew_tv" target="_blank">
@@ -66,7 +66,7 @@ module.exports = {
 
 👤 **Jamie Warburton**
 
-* Twitter: [@jamiew\_tv](https://twitter.com/jamiew\_tv)
+* Twitter: [@jamiewarb](https://twitter.com/jamiewarb)
 
 ## 🤝 Contributing
 
