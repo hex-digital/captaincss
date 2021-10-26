@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.4.0](https://github.com/hex-digital/captaincss/compare/v2.3.1...v2.4.0) (2021-10-26)
+
+
+### Features
+
+* **layout:** allow layout to space X and Y separately ([e3a753f](https://github.com/hex-digital/captaincss/commit/e3a753f1508db76adde7412c1604cdb064d58ada))
+
+
+### Bug Fixes
+
+* **config:** use "space" for spacing and gaps on objects ([3ec1f63](https://github.com/hex-digital/captaincss/commit/3ec1f63205befd6d64aaf5a5ecb7c122c058bb73))
+
 ### [2.3.1](https://github.com/hex-digital/captaincss/compare/v2.3.0...v2.3.1) (2021-10-26)
 
 
