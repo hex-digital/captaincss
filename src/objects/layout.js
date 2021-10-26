@@ -82,26 +82,28 @@ module.exports = function ({
   if (supportFlexGap) {
     layout = {
       [prefixObject('.layout')]: {
-        '--layout-gap': defaultGap,
+        '--layout-x-gap': defaultGap,
+        '--layout-y-gap': defaultGap,
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         listStyle: 'none' /* [2] */,
-        gap: 'var(--layout-gap)',
+        gap: `var(--layout-y-gap, ${defaultGap}) var(--layout-x-gap, ${defaultGap})`,
       },
     };
   } else {
     layout = {
       [prefixObject('.layout')]: {
-        '--layout-gap': defaultGap,
+        '--layout-x-gap': defaultGap,
+        '--layout-y-gap': defaultGap,
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         margin: '0' /* [1] */,
         padding: '0' /* [1] */,
         listStyle: 'none' /* [2] */,
-        marginTop: `calc(var(--layout-gap) * -1)` /* [3] */,
-        marginLeft: `calc(var(--layout-gap) * -1)` /* [3] */,
+        marginTop: `calc(var(--layout-y-gap, ${defaultGap}) * -1)` /* [3] */,
+        marginLeft: `calc(var(--layout-x-gap, ${defaultGap}) * -1)` /* [3] */,
       },
     };
   }
@@ -133,8 +135,8 @@ module.exports = function ({
       [prefixObject(layoutItemClass)]: {
         boxSizing: 'border-box' /* [1] */,
         width: '100%' /* [2] */,
-        marginTop: 'var(--layout-gap)' /* [3] */,
-        paddingLeft: 'var(--layout-gap)' /* [3] */,
+        marginTop: `var(--layout-y-gap, ${defaultGap})` /* [3] */,
+        paddingLeft: `var(--layout-x-gap, ${defaultGap})` /* [3] */,
         order: '5' /* [4] */,
       },
     };
@@ -172,6 +174,7 @@ module.exports = function ({
 
   const buildLayoutComponents = (screenPrefix) => {
     const prefixedLayoutGapModifiers = {};
+    const prefixedXYLayoutGapModifiers = {};
 
     for (const [modifier, gapSize] of Object.entries(gap)) {
       if (modifier === 'DEFAULT') continue; // Covered in the base block styles
@@ -179,16 +182,32 @@ module.exports = function ({
       // Prefix object without screenPrefix on it, then add screenPrefix afterwards, otherwise we get o-md:layout-item
       let layoutClass = prefixObject(`.${e(`layout${modSep}gap-${modifier}`)}`);
       layoutClass = '.' + screenPrefix + layoutClass.slice(1);
+      let layoutXClass = prefixObject(`.${e(`layout${modSep}gap-x-${modifier}`)}`);
+      layoutXClass = '.' + screenPrefix + layoutXClass.slice(1);
+      let layoutYClass = prefixObject(`.${e(`layout${modSep}gap-y-${modifier}`)}`);
+      layoutYClass = '.' + screenPrefix + layoutYClass.slice(1);
 
       const style = {
         [layoutClass]: {
-          '--layout-gap': gapSize,
+          '--layout-x-gap': gapSize,
+          '--layout-y-gap': gapSize,
         },
       };
+      const XYStyle = {
+        [layoutXClass]: {
+          '--layout-x-gap': gapSize,
+        },
+        [layoutYClass]: {
+          '--layout-y-gap': gapSize,
+        },
+      };
+
       Object.assign(prefixedLayoutGapModifiers, style);
+      Object.assign(prefixedXYLayoutGapModifiers, XYStyle);
     }
 
-    return prefixedLayoutGapModifiers;
+    /* Keep the -x-gap and -y-gap modifiers AFTER the -gap modifiers so they can override */
+    return { ...prefixedLayoutGapModifiers, ...prefixedXYLayoutGapModifiers };
   };
 
   layoutGapModifiers.push(buildLayoutComponents(''));
