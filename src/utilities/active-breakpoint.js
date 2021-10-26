@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const { pluginDisabled } = require('../utilities');
 
 module.exports = function ({ addUtilities, config, theme, e }) {
@@ -49,6 +50,9 @@ module.exports = function ({ addUtilities, config, theme, e }) {
   Object.entries(screens)
     .filter(([screen]) => !ignoredScreens.includes(screen))
     .forEach(([screen, size]) => {
+      if (!_.isString(size)) {
+        size = size.min || size; // @todo support .max aswell
+      }
       components[`@screen ${screen}`] = {
         [sanitisedSelector]: {
           content: `'${prefix}${screen} ≥ ${size}${suffix}'`,

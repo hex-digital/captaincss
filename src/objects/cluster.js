@@ -32,7 +32,7 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
         alignItems: 'center',
         display: 'flex',
         flexWrap: 'wrap',
-        gap: `var(--cluster-y-space, ${gap}) var(--cluster-x-space, ${gap})`,
+        gap: `var(--cluster-y-space, ${gap.DEFAULT}) var(--cluster-x-space, ${gap.DEFAULT})`,
         justifyContent: 'flex-start',
       },
     };
@@ -46,11 +46,11 @@ module.exports = function ({ addComponents, config, theme, variants, e, prefixOb
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
-        margin: `calc((var(--cluster-y-space, ${gap}) / 2) * -1) calc((var(--cluster-x-space, ${gap}) / 2) * -1)`,
+        margin: `calc((var(--cluster-y-space, ${gap.DEFAULT}) / 2) * -1) calc((var(--cluster-x-space, ${gap.DEFAULT}) / 2) * -1)`,
       },
 
       [prefixObject('.cluster > * > *')]: {
-        margin: `calc(var(--cluster-y-space, ${gap}) / 2) calc(var(--cluster-x-space, ${gap}) / 2)`,
+        margin: `calc(var(--cluster-y-space, ${gap.DEFAULT}) / 2) calc(var(--cluster-x-space, ${gap.DEFAULT}) / 2)`,
       },
     };
   }
