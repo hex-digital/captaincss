@@ -1,5 +1,14 @@
 # Changelog
 
+### [2.3.1](https://github.com/hex-digital/captaincss/compare/v2.3.0...v2.3.1) (2021-10-26)
+
+
+### Bug Fixes
+
+* **active-breakpoint:** add support for breakpoints with "min" defined ([cacd0d2](https://github.com/hex-digital/captaincss/commit/cacd0d268d74d0dd31f608e439d4a2d8ad5c45ec))
+* **cluster:** fix gap default value not being used ([a6f55cb](https://github.com/hex-digital/captaincss/commit/a6f55cb51e11dffb270b841d606784eb7e0124a3))
+* **config:** fix default config using "space" instead of "spacing" ([eb5ffca](https://github.com/hex-digital/captaincss/commit/eb5ffca20a3315c2ee002e1b9c290d7e082eebb4))
+
 ## [2.3.0](https://github.com/hex-digital/captaincss/compare/v2.2.4...v2.3.0) (2021-01-29)
 
 
