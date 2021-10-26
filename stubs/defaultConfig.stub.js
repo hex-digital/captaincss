@@ -33,7 +33,7 @@ module.exports = {
     cluster: (theme) => ({
       gap: {
         DEFAULT: '1rem',
-        ...theme('space'),
+        ...theme('spacing'),
       },
     }),
     cover: (theme) => ({
@@ -57,13 +57,13 @@ module.exports = {
     layout: (theme) => ({
       gap: {
         DEFAULT: '1rem',
-        ...theme('space'),
+        ...theme('spacing'),
       },
     }),
     stack: (theme) => ({
       gap: {
         DEFAULT: '1rem',
-        ...theme('space'),
+        ...theme('spacing'),
       },
     }),
     skipLink: {
