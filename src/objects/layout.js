@@ -37,11 +37,20 @@
  * divide the space equally between all containing layout items without the need
  * for width utility classes.
  *
- *   <div class="layout layout-auto">
+ *   <div class="layout layout--auto">
  *     <div>Column 1, 25% width</div>
  *     <div>Column 2, 25% width</div>
  *     <div>Column 3, 25% width</div>
  *     <div>Column 4, 25% width</div>
+ *   </div>
+ *
+ * And `layout--reverse`, which will reverse the order of the layout items when shown horizontally. This is great
+ * for if you want the order swapped on mobile and desktop.
+ *
+ *   <div class="layout layout--reverse">
+ *     <div class="layout__item md:w-1/2">Column 1</div>
+ *     <div class="layout__item md:w-1/2">Column 2</div>
+ *     <!-- Column 2 is shown first horizontally, but second when stacked vertically -->
  *   </div>
  */
 
@@ -233,6 +242,12 @@ module.exports = function ({
   const layoutModifiers = {
     [prefixObject(`.layout${modSep}auto > ${supportFlexGap ? '*' : layoutItemClass}`)]: {
       width: 'auto',
+    },
+    [prefixObject(`.layout${modSep}reverse`)]: {
+      direction: 'rtl',
+    },
+    [prefixObject(`.layout${modSep}reverse > ${supportFlexGap ? '*' : layoutItemClass}`)]: {
+      direction: 'ltr',
     },
   };
 
