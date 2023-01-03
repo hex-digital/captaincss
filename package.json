@@ -30,7 +30,7 @@
     }
   },
   "peerDependencies": {
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "2 - 3"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
