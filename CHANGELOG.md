@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/hex-digital/captaincss/compare/v2.4.0...v2.5.0) (2023-01-03)
+
+
+### Features
+
+* add reverse modifier to layout object ([c2cc93f](https://github.com/hex-digital/captaincss/commit/c2cc93f52240da95e5bb3bad2f1f08106cc0973b))
+
 ## [2.4.0](https://github.com/hex-digital/captaincss/compare/v2.3.1...v2.4.0) (2021-10-26)
 
 
