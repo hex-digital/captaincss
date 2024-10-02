@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.6.0](https://github.com/hex-digital/captaincss/compare/v2.5.0...v2.6.0) (2024-10-02)
+
+
+### Features
+
+* use tailwind v3 for devDeps ([9906842](https://github.com/hex-digital/captaincss/commit/990684210eae35252f724d0e0474924c3a573610))
+
+
+### Bug Fixes
+
+* commit new lock file ([1d194b1](https://github.com/hex-digital/captaincss/commit/1d194b1b1b6f4e0234696b0a9058a6e264cad14e))
+
 ## [2.5.0](https://github.com/hex-digital/captaincss/compare/v2.4.0...v2.5.0) (2023-01-03)
 
 
